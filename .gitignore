@@ -1,0 +1,9 @@
+.env
+.pytest_cache
+.venv
+.idea
+reports
+allure-report
+*.iml
+leetcode.py
+__pycache__/
