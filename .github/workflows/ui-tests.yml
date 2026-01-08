@@ -30,7 +30,7 @@ jobs:
       - name: Run tests
         run: pytest -s
       - uses: actions/upload-artifact@v4
-        if: ${{ !canceled() }}
+        if: ${{ !cancelled() }}
         with:
           name: allure_results
           path: allure-results/
