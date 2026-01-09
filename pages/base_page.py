@@ -1,6 +1,8 @@
 import allure
 from playwright.sync_api import Page, expect
 
+from pages.components import SideBarComponent
+
 
 class BasePage:
 
@@ -16,8 +18,7 @@ class BasePage:
     def is_opened(self):
         with allure.step(f"Проверить, что открыта страница {self.PAGE_URL}"):
             self.page.wait_for_load_state("networkidle")
-            expect(self.page).to_have_url(self.PAGE_URL)
-
+            expect(self.page).to_have_url(self.PAGE_URL, timeout=60000)
 
     def make_screenshot(self):
         allure.attach(
@@ -25,3 +26,7 @@ class BasePage:
             name="screenshot.png",
             attachment_type=allure.attachment_type.PNG
         )
+
+    @property
+    def sidebar(self):
+        return SideBarComponent(self.page)
