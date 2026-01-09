@@ -1,5 +1,4 @@
 import allure
-import pytest
 
 from fixtures import *
 
@@ -16,4 +15,3 @@ def pytest_runtest_makereport(item, call):
                 name="screenshot.png",
                 attachment_type=allure.attachment_type.PNG
             )
-

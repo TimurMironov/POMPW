@@ -11,7 +11,6 @@ class BasePage:
 
     def open_page(self):
         with allure.step(f"Открыть страницу {self.PAGE_URL}"):
-            self.page.context.clear_cookies()
             self.page.goto(self.PAGE_URL, timeout=60000)
             self.page.wait_for_load_state("networkidle")
 

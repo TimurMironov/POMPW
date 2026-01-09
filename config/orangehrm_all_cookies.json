@@ -1,0 +1,12 @@
+[
+  {
+    "name": "orangehrm",
+    "value": "d5bo8cofav07tag559hsrbh8dm",
+    "domain": "opensource-demo.orangehrmlive.com",
+    "path": "/",
+    "expires": -1,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "Lax"
+  }
+]

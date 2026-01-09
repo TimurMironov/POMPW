@@ -1,1 +1,1 @@
-from .pages_fixtures import login_page, dashboard_page, my_info_page, data
+from .pages_fixtures import *

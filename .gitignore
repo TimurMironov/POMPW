@@ -6,4 +6,5 @@ reports
 allure-report
 *.iml
 leetcode.py
+fg.py
 __pycache__/

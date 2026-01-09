@@ -1,22 +1,16 @@
 import allure
 
 from pages.dashboard_page import DashboardPage
-from pages.login_page import LoginPage
 from pages.my_info_page import MyInfoPage
-from config.data import Data
 
 
 class TestChangeFirstAndMiddleName:
     TEST_FIRST_NAME = "first name"
     TEST_MIDDLE_NAME = "middle name"
 
-    @allure.title("Логин тест")
-    def test_change_first_and_middle_name(self, login_page: LoginPage, dashboard_page: DashboardPage,
-                                          my_info_page: MyInfoPage, data: Data):
-        login_page.open_page()
-        login_page.enter_login(data.LOGIN)
-        login_page.enter_password(data.PASSWORD)
-        login_page.click_login()
+    @allure.title("Проверка сохранения изменений полей first name и middle name")
+    def test_change_first_and_middle_name(self, dashboard_page: DashboardPage, my_info_page: MyInfoPage, auth_via_cookie):
+        dashboard_page.open_page()
         dashboard_page.is_opened()
         dashboard_page.sidebar.click_my_info_link()
         my_info_page.is_opened()

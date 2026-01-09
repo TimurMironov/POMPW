@@ -1,3 +1,6 @@
+import json
+from pathlib import Path
+
 import pytest
 from playwright.sync_api import Page
 
@@ -22,3 +25,10 @@ def my_info_page(page: Page):
 @pytest.fixture(scope="class")
 def data():
     return Data()
+
+@pytest.fixture
+def auth_via_cookie(page: Page):
+    path = Path(__file__).parent.parent / 'config/orangehrm_all_cookies.json'
+    cookies = json.load(path.open(mode="r"))
+    page.context.add_cookies(cookies)
+    return page
