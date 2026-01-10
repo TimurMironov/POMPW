@@ -1,6 +1,7 @@
 import allure
+import pytest
 
-from fixtures import *
+from ui_tests.src.fixtures import *
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):

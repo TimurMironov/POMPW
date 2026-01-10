@@ -1,8 +1,8 @@
 import allure
 from playwright.sync_api import expect, Page
 
-from config.links import Links
-from pages.base_page import BasePage
+from ui_tests.src.config.links import Links
+from ui_tests.src.pages.base_page import BasePage
 
 
 class LoginPage(BasePage):

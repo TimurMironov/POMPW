@@ -4,10 +4,10 @@ from pathlib import Path
 import pytest
 from playwright.sync_api import Page, BrowserContext
 
-from config.data import Data
-from pages.dashboard_page import DashboardPage
-from pages.login_page import LoginPage
-from pages.my_info_page import MyInfoPage
+from ui_tests.src.config.data import Data
+from ui_tests.src.pages.dashboard_page import DashboardPage
+from ui_tests.src.pages.login_page import LoginPage
+from ui_tests.src.pages.my_info_page import MyInfoPage
 
 
 @pytest.fixture(scope="function")

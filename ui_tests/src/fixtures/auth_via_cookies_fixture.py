@@ -1,6 +1,7 @@
 import pytest
 from playwright.sync_api import BrowserContext, Browser
-from config.data import Data
+
+from ui_tests.src.config.data import Data
 
 
 @pytest.fixture(scope="session")

@@ -1,7 +1,7 @@
 import allure
 from playwright.sync_api import Page, expect
 
-from pages.components import SideBarComponent
+from ui_tests.src.pages.components import SideBarComponent
 
 
 class BasePage:

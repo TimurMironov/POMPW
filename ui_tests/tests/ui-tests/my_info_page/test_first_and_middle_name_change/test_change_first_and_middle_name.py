@@ -1,7 +1,6 @@
 import allure
 
-from pages.dashboard_page import DashboardPage
-from pages.my_info_page import MyInfoPage
+from ui_tests.src.pages.my_info_page import MyInfoPage
 
 
 class TestChangeFirstAndMiddleName:
