@@ -9,10 +9,8 @@ class TestChangeFirstAndMiddleName:
     TEST_MIDDLE_NAME = "middle name"
 
     @allure.title("Проверка сохранения изменений полей first name и middle name")
-    def test_change_first_and_middle_name(self, dashboard_page: DashboardPage, my_info_page: MyInfoPage, auth_via_cookie):
-        dashboard_page.open_page()
-        dashboard_page.is_opened()
-        dashboard_page.sidebar.click_my_info_link()
+    def test_change_first_and_middle_name(self, my_info_page: MyInfoPage, auth_via_cookie):
+        my_info_page.open_page()
         my_info_page.is_opened()
         my_info_page.set_first_name(self.TEST_FIRST_NAME)
         my_info_page.set_middle_name(self.TEST_MIDDLE_NAME)

@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 
 import pytest
-from playwright.sync_api import Page
+from playwright.sync_api import Page, BrowserContext
 
 from config.data import Data
 from pages.dashboard_page import DashboardPage
@@ -26,9 +26,9 @@ def my_info_page(page: Page):
 def data():
     return Data()
 
-@pytest.fixture
-def auth_via_cookie(page: Page):
-    path = Path(__file__).parent.parent / 'config/orangehrm_all_cookies.json'
-    cookies = json.load(path.open(mode="r"))
-    page.context.add_cookies(cookies)
-    return page
+# @pytest.fixture
+# def auth_via_cookie_from_file(context: BrowserContext):
+#     path = Path(__file__).parent.parent / 'config/orangehrm_all_cookies.json'
+#     cookies = json.load(path.open(mode="r"))
+#     context.add_cookies(cookies)
+#     return context

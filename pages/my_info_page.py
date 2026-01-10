@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import allure
 from playwright.sync_api import Page, expect
 
@@ -12,6 +14,9 @@ class MyInfoPage(BasePage):
     MIDDLE_NAME_LOCATOR = "//input[@name='middleName']"
     SAVE_BUTTON_LOCATOR = "//button[@type='submit']"
     LOADING_SPINNER_LOCATOR = "//div[@class='oxd-loading-spinner']"
+    ADD_ATTACHMENT_BUTTON_LOCATOR = "//button[text()=' Add ']"
+
+    INPUT_ATTACHMENT_LOCATOR = "//input[@type='file']"
 
     def __init__(self, page: Page):
         super().__init__(page)
@@ -19,6 +24,8 @@ class MyInfoPage(BasePage):
         self.middle_name_locator = page.locator(self.MIDDLE_NAME_LOCATOR)
         self.save_personal_details_locator = page.locator(self.SAVE_BUTTON_LOCATOR).nth(0)
         self.loading_spinner_locator = page.locator(self.LOADING_SPINNER_LOCATOR)
+        self.add_attachment_locator = page.locator(self.ADD_ATTACHMENT_BUTTON_LOCATOR)
+        self.save_attachments = page.locator(self.SAVE_BUTTON_LOCATOR).nth(2)
 
     def set_first_name(self, first_name):
         with allure.step(f"В поле 'first_name' ввести имя {first_name}"):
@@ -46,6 +53,21 @@ class MyInfoPage(BasePage):
     def check_middle_name_saved(self, check_middle_name):
         with allure.step(f"Проверка что в поле middle_name значение изменилось на {check_middle_name}"):
             expect(self.middle_name_locator).to_have_value(check_middle_name)
+
+    def add_attachment(self, path_file):
+        self.add_attachment_locator.click()
+        self.page.set_input_files(self.INPUT_ATTACHMENT_LOCATOR, path_file)
+        self.attachment_name = Path(path_file).name
+
+    def save_attachments_click(self):
+        self.save_attachments.click()
+
+    def check_save_attachments(self, test_image=None):
+        if hasattr(self, "attachment_name") and test_image is None:
+            test_image = self.attachment_name
+        attachment_name = self.page.locator(f"//div[text() = '{test_image}']")
+        expect(attachment_name).to_be_visible()
+
 
 
 
