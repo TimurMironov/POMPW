@@ -1,5 +1,0 @@
-pytest==9.0.2
-playwright==1.57.0
-pytest-playwright==0.7.2
-allure-pytest==2.15.3
-dotenv==0.9.9
