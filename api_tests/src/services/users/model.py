@@ -24,8 +24,8 @@ class Address(BaseModel):
 
     city: str = Field(...)
     street: str = Field(...)
-    house: str = Field(...)
-    apartment: str = Field(...)
+    house: int = Field(...)
+    apartment: int = Field(...)
     postal_code: str = Field(..., alias="postalCode")
 
 class SocialNetwork(BaseModel):
@@ -33,11 +33,20 @@ class SocialNetwork(BaseModel):
     username: str = Field(...)
 
 class Contact(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+    )
+
     email: EmailStr = Field(...)
     phone: str = Field(...)
     address: Address = Field(...)
-    network: list[SocialNetwork]
+    networks: list[SocialNetwork] = Field(alias="socialNetworks")
 
+
+class Company(BaseModel):
+    name: str
+    industry: str
+    website: str
 
 class Employment(BaseModel):
     model_config = ConfigDict(
@@ -45,9 +54,7 @@ class Employment(BaseModel):
         extra="ignore",
     )
     position: str = Field(...)
-    company_name: str = Field(..., alias="company.name")
-    company_industry: str = Field(..., alias="company.industry")
-    company_website: str = Field(..., alias="company.website")
+    company: Company
     experience: int = Field(...)
     remote: bool
 
@@ -59,8 +66,10 @@ class Sports(BaseModel):
 
 class Interests(BaseModel):
     hobbies: list[str]
-    sports: list[Sports]
-    music: list[str]
+    sports: list[Sports] = Field(default_factory=list)
+    music: list[str] = Field(default_factory=list)
+    art: list[str] = Field(default_factory=list)
+
 
 
 class Education(BaseModel):
@@ -71,18 +80,24 @@ class Education(BaseModel):
     degree: str
 
 
-class Settings(BaseModel):
+class Notifications(BaseModel):
+    email: bool
+    sms: bool
+    push: bool
+
+class Privacy(BaseModel):
     model_config = ConfigDict(
         populate_by_name=True
     )
 
+    profile_visible: str = Field(..., alias="profileVisible")
+    show_location: bool = Field(..., alias="showLocation")
+    show_age: bool = Field(..., alias="showAge")
+
+class Settings(BaseModel):
     isActive: bool = Field(...)
-    notifications_email: bool = Field(..., alias="notifications.email")
-    notifications_sms: bool = Field(..., alias="notifications.sms")
-    notifications_push: bool = Field(..., alias="notifications.push")
-    privacy_profileVisible: str = Field(..., alias="privacy.profileVisible")
-    privacy_showLocation: bool = Field(..., alias="privacy.showLocation")
-    privacy_showAge: bool = Field(..., alias="privacy.showAge")
+    notifications: Notifications
+    privacy: Privacy
 
 
 class Statistics(BaseModel):

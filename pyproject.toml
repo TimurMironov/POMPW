@@ -10,7 +10,7 @@ dependencies = [
     "faker==40.1.0",
     "fastapi>=0.129.0",
     "playwright==1.57.0",
-    "pydantic==2.12.5",
+    "pydantic[email]==2.12.5",
     "pytest==9.0.2",
     "pytest-playwright==0.7.2",
     "requests==2.32.5",
