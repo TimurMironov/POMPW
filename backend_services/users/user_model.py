@@ -58,20 +58,6 @@ class Employment(BaseModel):
     experience: int = Field(...)
     remote: bool
 
-
-class Sports(BaseModel):
-    type: str
-    frequency: str
-    experience: int
-
-class Interests(BaseModel):
-    hobbies: list[str]
-    sports: list[Sports] = Field(default_factory=list)
-    music: list[str] = Field(default_factory=list)
-    art: list[str] = Field(default_factory=list)
-
-
-
 class Education(BaseModel):
     level: str = Field(...)
     institution: str
@@ -120,7 +106,6 @@ class User(BaseModel):
     personal_info: PersonalInfo = Field(..., alias="personalInfo")
     contact: Contact = Field(..., alias="contact")
     employment: Employment = Field(..., alias="employment")
-    interests: Interests = Field(..., alias="interests")
     education: Education = Field(..., alias="education")
     settings: Settings = Field(..., alias="settings")
     statistics: Statistics = Field(..., alias="statistics")

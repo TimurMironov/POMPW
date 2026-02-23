@@ -1,0 +1,69 @@
+{
+  "id": 101,
+  "personalInfo": {
+    "firstName": "Дмитрий",
+    "lastName": "Смирнов",
+    "middleName": "Александрович",
+    "birthDate": "1988-11-23",
+    "age": 35,
+    "gender": "male",
+    "nationality": "Русский"
+  },
+  "contact": {
+    "email": "d.smirnov@company.ru",
+    "phone": "+7 (916) 789-45-12",
+    "address": {
+      "city": "Екатеринбург",
+      "street": "Ленина",
+      "house": 45,
+      "apartment": 78,
+      "postalCode": "620075"
+    },
+    "socialNetworks": [
+      {
+        "name": "Telegram",
+        "username": "@dsmirnov"
+      },
+      {
+        "name": "LinkedIn",
+        "username": "dmitry-smirnov"
+      }
+    ]
+  },
+  "employment": {
+    "position": "Product Manager",
+    "company": {
+      "name": "Яндекс",
+      "industry": "IT",
+      "website": "yandex.ru"
+    },
+    "experience": 9,
+    "remote": false
+  },
+  "education": {
+    "level": "higher",
+    "institution": "УрФУ",
+    "faculty": "Радиотехнический",
+    "graduationYear": 2010,
+    "degree": "Специалист"
+  },
+  "settings": {
+    "isActive": true,
+    "notifications": {
+      "email": true,
+      "sms": true,
+      "push": false
+    },
+    "privacy": {
+      "profileVisible": "friends",
+      "showLocation": true,
+      "showAge": false
+    }
+  },
+  "statistics": {
+    "registrationDate": "2019-08-15T11:20:00Z",
+    "lastLogin": "2024-02-16T09:15:30Z",
+    "loginCount": 567,
+    "rating": 4.9
+  }
+}

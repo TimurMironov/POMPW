@@ -1,424 +1,468 @@
 [
-  {
-    "id": 1,
-    "personalInfo": {
-      "firstName": "Алексей",
-      "lastName": "Иванов",
-      "middleName": "Петрович",
-      "birthDate": "1996-03-15",
-      "age": 28,
-      "gender": "male",
-      "nationality": "Русский"
-    },
-    "contact": {
-      "email": "alexey.ivanov@example.com",
-      "phone": "+7 (495) 123-45-67",
-      "address": {
-        "city": "Москва",
-        "street": "Тверская",
-        "house": 15,
-        "apartment": 42,
-        "postalCode": "125009"
-      },
-      "socialNetworks": [
-        {
-          "name": "Telegram",
-          "username": "@alex_ivanov"
+    {
+        "id": 1,
+        "personalInfo": {
+            "firstName": "Алексей",
+            "lastName": "Иванов",
+            "middleName": "Петрович",
+            "birthDate": "1996-03-15",
+            "age": 28,
+            "gender": "male",
+            "nationality": "Русский"
         },
-        {
-          "name": "VK",
-          "username": "alexey.ivanov"
-        }
-      ]
-    },
-    "employment": {
-      "position": "Senior Software Engineer",
-      "company": {
-        "name": "ТехноИнновации",
-        "industry": "IT",
-        "website": "technoinnovations.ru"
-      },
-      "experience": 6,
-      "remote": true
-    },
-    "interests": {
-      "hobbies": [
-        "футбол",
-        "чтение",
-        "путешествия",
-        "настольные игры"
-      ],
-      "sports": [
-        {
-          "type": "футбол",
-          "frequency": "weekly",
-          "experience": 12
+        "contact": {
+            "email": "alexey.ivanov@example.com",
+            "phone": "+7 (495) 123-45-67",
+            "address": {
+                "city": "Москва",
+                "street": "Тверская",
+                "house": 15,
+                "apartment": 42,
+                "postalCode": "125009"
+            },
+            "socialNetworks": [
+                {
+                    "name": "Telegram",
+                    "username": "@alex_ivanov"
+                },
+                {
+                    "name": "VK",
+                    "username": "alexey.ivanov"
+                }
+            ]
         },
-        {
-          "type": "бег",
-          "frequency": "occasional",
-          "experience": 3
+        "employment": {
+            "position": "Senior Software Engineer",
+            "company": {
+                "name": "ТехноИнновации",
+                "industry": "IT",
+                "website": "technoinnovations.ru"
+            },
+            "experience": 6,
+            "remote": true
+        },
+        "interests": {
+            "hobbies": [
+                "футбол",
+                "чтение",
+                "путешествия",
+                "настольные игры"
+            ],
+            "sports": [
+                {
+                    "type": "футбол",
+                    "frequency": "weekly",
+                    "experience": 12
+                },
+                {
+                    "type": "бег",
+                    "frequency": "occasional",
+                    "experience": 3
+                }
+            ],
+            "music": [
+                "рок",
+                "классика",
+                "инди"
+            ]
+        },
+        "education": {
+            "level": "higher",
+            "institution": "МГУ им. Ломоносова",
+            "faculty": "Вычислительной математики и кибернетики",
+            "graduationYear": 2018,
+            "degree": "Бакалавр"
+        },
+        "settings": {
+            "isActive": true,
+            "notifications": {
+                "email": true,
+                "sms": false,
+                "push": true
+            },
+            "privacy": {
+                "profileVisible": "public",
+                "showLocation": true,
+                "showAge": true
+            }
+        },
+        "statistics": {
+            "registrationDate": "2020-05-10T09:23:45Z",
+            "lastLogin": "2024-02-15T14:32:21Z",
+            "loginCount": 345,
+            "rating": 4.8
         }
-      ],
-      "music": [
-        "рок",
-        "классика",
-        "инди"
-      ]
     },
-    "education": {
-      "level": "higher",
-      "institution": "МГУ им. Ломоносова",
-      "faculty": "Вычислительной математики и кибернетики",
-      "graduationYear": 2018,
-      "degree": "Бакалавр"
+    {
+        "id": 2,
+        "personalInfo": {
+            "firstName": "Елена",
+            "lastName": "Смирнова",
+            "middleName": "Андреевна",
+            "birthDate": "1990-07-22",
+            "age": 34,
+            "gender": "female",
+            "nationality": "Русская"
+        },
+        "contact": {
+            "email": "elena.smirnova@example.com",
+            "phone": "+7 (812) 987-65-43",
+            "address": {
+                "city": "Санкт-Петербург",
+                "street": "Невский проспект",
+                "house": 48,
+                "apartment": 15,
+                "postalCode": "191025"
+            },
+            "socialNetworks": [
+                {
+                    "name": "Telegram",
+                    "username": "@elena_smirnova"
+                },
+                {
+                    "name": "Instagram",
+                    "username": "elena.smirnova.design"
+                }
+            ]
+        },
+        "employment": {
+            "position": "Creative Director",
+            "company": {
+                "name": "АртБюро Смирновой",
+                "industry": "Дизайн",
+                "website": "smirnova.design.ru"
+            },
+            "experience": 10,
+            "remote": false
+        },
+        "interests": {
+            "hobbies": [
+                "йога",
+                "рисование",
+                "кулинария",
+                "флористика"
+            ],
+            "sports": [
+                {
+                    "type": "йога",
+                    "frequency": "daily",
+                    "experience": 5
+                },
+                {
+                    "type": "пилатес",
+                    "frequency": "weekly",
+                    "experience": 2
+                }
+            ],
+            "art": [
+                "акварель",
+                "масло",
+                "скетчинг"
+            ]
+        },
+        "education": {
+            "level": "higher",
+            "institution": "СПбГУ",
+            "faculty": "Искусств и дизайна",
+            "graduationYear": 2012,
+            "degree": "Магистр"
+        },
+        "settings": {
+            "isActive": true,
+            "notifications": {
+                "email": true,
+                "sms": true,
+                "push": false
+            },
+            "privacy": {
+                "profileVisible": "public",
+                "showLocation": true,
+                "showAge": false
+            }
+        },
+        "statistics": {
+            "registrationDate": "2019-11-03T16:45:12Z",
+            "lastLogin": "2024-02-16T10:15:33Z",
+            "loginCount": 567,
+            "rating": 4.9
+        }
     },
-    "settings": {
-      "isActive": true,
-      "notifications": {
-        "email": true,
-        "sms": false,
-        "push": true
-      },
-      "privacy": {
-        "profileVisible": "public",
-        "showLocation": true,
-        "showAge": true
-      }
+    {
+        "id": 3,
+        "personalInfo": {
+            "firstName": "Дмитрий",
+            "lastName": "Козлов",
+            "middleName": "Сергеевич",
+            "birthDate": "1982-11-05",
+            "age": 42,
+            "gender": "male",
+            "nationality": "Русский"
+        },
+        "contact": {
+            "email": "dmitry.kozlov@example.com",
+            "phone": "+7 (383) 246-80-13",
+            "address": {
+                "city": "Новосибирск",
+                "street": "Красный проспект",
+                "house": 120,
+                "apartment": 78,
+                "postalCode": "630099"
+            },
+            "socialNetworks": [
+                {
+                    "name": "Telegram",
+                    "username": "@dmitry_kozlov"
+                },
+                {
+                    "name": "VK",
+                    "username": "dmitry.kozlov.nsk"
+                }
+            ]
+        },
+        "employment": {
+            "position": "Chief Accountant",
+            "company": {
+                "name": "ФинансГрупп Сибирь",
+                "industry": "Финансы",
+                "website": "fingroup-siberia.ru"
+            },
+            "experience": 18,
+            "remote": false
+        },
+        "interests": {
+            "hobbies": [
+                "рыбалка",
+                "шахматы",
+                "историческая литература"
+            ],
+            "fishing": {
+                "type": [
+                    "спиннинг",
+                    "поплавок"
+                ],
+                "experience": 25,
+                "preferences": "хищная рыба"
+            },
+            "chess": {
+                "rating": 1850,
+                "preferredOpenings": [
+                    "сицилианская защита",
+                    "испанская партия"
+                ],
+                "online": true
+            }
+        },
+        "education": {
+            "level": "higher",
+            "institution": "НГУЭУ",
+            "faculty": "Финансов и кредита",
+            "graduationYear": 2004,
+            "degree": "Специалист"
+        },
+        "family": {
+            "maritalStatus": "married",
+            "spouse": {
+                "name": "Марина Козлова",
+                "occupation": "Врач-педиатр"
+            },
+            "children": [
+                {
+                    "name": "Анна",
+                    "age": 12,
+                    "gender": "female"
+                },
+                {
+                    "name": "Павел",
+                    "age": 8,
+                    "gender": "male"
+                }
+            ]
+        },
+        "settings": {
+            "isActive": false,
+            "notifications": {
+                "email": true,
+                "sms": false,
+                "push": false
+            },
+            "privacy": {
+                "profileVisible": "contacts",
+                "showLocation": false,
+                "showAge": true
+            }
+        },
+        "statistics": {
+            "registrationDate": "2018-08-21T12:10:05Z",
+            "lastLogin": "2024-01-28T08:45:17Z",
+            "loginCount": 189,
+            "rating": 4.5
+        }
     },
-    "statistics": {
-      "registrationDate": "2020-05-10T09:23:45Z",
-      "lastLogin": "2024-02-15T14:32:21Z",
-      "loginCount": 345,
-      "rating": 4.8
+    {
+        "id": 4,
+        "personalInfo": {
+            "firstName": "Анна",
+            "lastName": "Попова",
+            "middleName": "Игоревна",
+            "birthDate": "1999-09-18",
+            "age": 25,
+            "gender": "female",
+            "nationality": "Русская"
+        },
+        "contact": {
+            "email": "anna.popova@example.com",
+            "phone": "+7 (343) 555-44-33",
+            "address": {
+                "city": "Екатеринбург",
+                "street": "Ленина",
+                "house": 25,
+                "apartment": 101,
+                "postalCode": "620075"
+            },
+            "socialNetworks": [
+                {
+                    "name": "Instagram",
+                    "username": "anna.popova.design"
+                },
+                {
+                    "name": "Behance",
+                    "username": "anna_popova"
+                },
+                {
+                    "name": "Telegram",
+                    "username": "@anna_popova"
+                }
+            ]
+        },
+        "employment": {
+            "position": "UI/UX Designer",
+            "company": {
+                "name": "Креативная студия 'Взгляд'",
+                "industry": "Дизайн",
+                "website": "vzglyad.design"
+            },
+            "experience": 4,
+            "remote": true,
+            "portfolio": {
+                "projects": 47,
+                "clients": [
+                    "Сбер",
+                    "Яндекс",
+                    "Лукойл"
+                ],
+                "rating": 4.9
+            }
+        },
+        "education": {
+            "level": "higher",
+            "institution": "УрФУ",
+            "faculty": "Искусствоведения и дизайна",
+            "graduationYear": 2021,
+            "degree": "Бакалавр",
+            "additional": [
+                {
+                    "course": "UX/UI дизайн",
+                    "platform": "Нетология",
+                    "year": 2022
+                },
+                {
+                    "course": "Графический дизайн",
+                    "platform": "Skillbox",
+                    "year": 2020
+                }
+            ]
+        },
+        "settings": {
+            "isActive": true,
+            "notifications": {
+                "email": true,
+                "sms": false,
+                "push": true,
+                "telegram": true
+            },
+            "privacy": {
+                "profileVisible": "public",
+                "showLocation": true,
+                "showAge": true,
+                "showPortfolio": true
+            }
+        },
+        "statistics": {
+            "registrationDate": "2021-04-15T10:30:00Z",
+            "lastLogin": "2024-02-16T09:12:45Z",
+            "loginCount": 412,
+            "rating": 4.95,
+            "views": 12345,
+            "followers": 567
+        }
+    },
+    {
+        "id": 101,
+        "personalInfo": {
+            "firstName": "Дмитрий",
+            "lastName": "Смирнов",
+            "middleName": "Александрович",
+            "birthDate": "1988-11-23",
+            "age": 35,
+            "gender": "male",
+            "nationality": "Русский"
+        },
+        "contact": {
+            "email": "d.smirnov@company.ru",
+            "phone": "+7 (916) 789-45-12",
+            "address": {
+                "city": "Екатеринбург",
+                "street": "Ленина",
+                "house": 45,
+                "apartment": 78,
+                "postalCode": "620075"
+            },
+            "socialNetworks": [
+                {
+                    "name": "Telegram",
+                    "username": "@dsmirnov"
+                },
+                {
+                    "name": "LinkedIn",
+                    "username": "dmitry-smirnov"
+                }
+            ]
+        },
+        "employment": {
+            "position": "Product Manager",
+            "company": {
+                "name": "Яндекс",
+                "industry": "IT",
+                "website": "yandex.ru"
+            },
+            "experience": 9,
+            "remote": false
+        },
+        "education": {
+            "level": "higher",
+            "institution": "УрФУ",
+            "faculty": "Радиотехнический",
+            "graduationYear": 2010,
+            "degree": "Специалист"
+        },
+        "settings": {
+            "isActive": true,
+            "notifications": {
+                "email": true,
+                "sms": true,
+                "push": false
+            },
+            "privacy": {
+                "profileVisible": "friends",
+                "showLocation": true,
+                "showAge": false
+            }
+        },
+        "statistics": {
+            "registrationDate": "2019-08-15T11:20:00Z",
+            "lastLogin": "2024-02-16T09:15:30Z",
+            "loginCount": 567,
+            "rating": 4.9
+        }
     }
-  },
-  {
-    "id": 2,
-    "personalInfo": {
-      "firstName": "Елена",
-      "lastName": "Смирнова",
-      "middleName": "Андреевна",
-      "birthDate": "1990-07-22",
-      "age": 34,
-      "gender": "female",
-      "nationality": "Русская"
-    },
-    "contact": {
-      "email": "elena.smirnova@example.com",
-      "phone": "+7 (812) 987-65-43",
-      "address": {
-        "city": "Санкт-Петербург",
-        "street": "Невский проспект",
-        "house": 48,
-        "apartment": 15,
-        "postalCode": "191025"
-      },
-      "socialNetworks": [
-        {
-          "name": "Telegram",
-          "username": "@elena_smirnova"
-        },
-        {
-          "name": "Instagram",
-          "username": "elena.smirnova.design"
-        }
-      ]
-    },
-    "employment": {
-      "position": "Creative Director",
-      "company": {
-        "name": "АртБюро Смирновой",
-        "industry": "Дизайн",
-        "website": "smirnova.design.ru"
-      },
-      "experience": 10,
-      "remote": false
-    },
-    "interests": {
-      "hobbies": [
-        "йога",
-        "рисование",
-        "кулинария",
-        "флористика"
-      ],
-      "sports": [
-        {
-          "type": "йога",
-          "frequency": "daily",
-          "experience": 5
-        },
-        {
-          "type": "пилатес",
-          "frequency": "weekly",
-          "experience": 2
-        }
-      ],
-      "art": [
-        "акварель",
-        "масло",
-        "скетчинг"
-      ]
-    },
-    "education": {
-      "level": "higher",
-      "institution": "СПбГУ",
-      "faculty": "Искусств и дизайна",
-      "graduationYear": 2012,
-      "degree": "Магистр"
-    },
-    "settings": {
-      "isActive": true,
-      "notifications": {
-        "email": true,
-        "sms": true,
-        "push": false
-      },
-      "privacy": {
-        "profileVisible": "public",
-        "showLocation": true,
-        "showAge": false
-      }
-    },
-    "statistics": {
-      "registrationDate": "2019-11-03T16:45:12Z",
-      "lastLogin": "2024-02-16T10:15:33Z",
-      "loginCount": 567,
-      "rating": 4.9
-    }
-  },
-  {
-    "id": 3,
-    "personalInfo": {
-      "firstName": "Дмитрий",
-      "lastName": "Козлов",
-      "middleName": "Сергеевич",
-      "birthDate": "1982-11-05",
-      "age": 42,
-      "gender": "male",
-      "nationality": "Русский"
-    },
-    "contact": {
-      "email": "dmitry.kozlov@example.com",
-      "phone": "+7 (383) 246-80-13",
-      "address": {
-        "city": "Новосибирск",
-        "street": "Красный проспект",
-        "house": 120,
-        "apartment": 78,
-        "postalCode": "630099"
-      },
-      "socialNetworks": [
-        {
-          "name": "Telegram",
-          "username": "@dmitry_kozlov"
-        },
-        {
-          "name": "VK",
-          "username": "dmitry.kozlov.nsk"
-        }
-      ]
-    },
-    "employment": {
-      "position": "Chief Accountant",
-      "company": {
-        "name": "ФинансГрупп Сибирь",
-        "industry": "Финансы",
-        "website": "fingroup-siberia.ru"
-      },
-      "experience": 18,
-      "remote": false
-    },
-    "interests": {
-      "hobbies": [
-        "рыбалка",
-        "шахматы",
-        "историческая литература"
-      ],
-      "fishing": {
-        "type": [
-          "спиннинг",
-          "поплавок"
-        ],
-        "experience": 25,
-        "preferences": "хищная рыба"
-      },
-      "chess": {
-        "rating": 1850,
-        "preferredOpenings": [
-          "сицилианская защита",
-          "испанская партия"
-        ],
-        "online": true
-      }
-    },
-    "education": {
-      "level": "higher",
-      "institution": "НГУЭУ",
-      "faculty": "Финансов и кредита",
-      "graduationYear": 2004,
-      "degree": "Специалист"
-    },
-    "family": {
-      "maritalStatus": "married",
-      "spouse": {
-        "name": "Марина Козлова",
-        "occupation": "Врач-педиатр"
-      },
-      "children": [
-        {
-          "name": "Анна",
-          "age": 12,
-          "gender": "female"
-        },
-        {
-          "name": "Павел",
-          "age": 8,
-          "gender": "male"
-        }
-      ]
-    },
-    "settings": {
-      "isActive": false,
-      "notifications": {
-        "email": true,
-        "sms": false,
-        "push": false
-      },
-      "privacy": {
-        "profileVisible": "contacts",
-        "showLocation": false,
-        "showAge": true
-      }
-    },
-    "statistics": {
-      "registrationDate": "2018-08-21T12:10:05Z",
-      "lastLogin": "2024-01-28T08:45:17Z",
-      "loginCount": 189,
-      "rating": 4.5
-    }
-  },
-  {
-    "id": 4,
-    "personalInfo": {
-      "firstName": "Анна",
-      "lastName": "Попова",
-      "middleName": "Игоревна",
-      "birthDate": "1999-09-18",
-      "age": 25,
-      "gender": "female",
-      "nationality": "Русская"
-    },
-    "contact": {
-      "email": "anna.popova@example.com",
-      "phone": "+7 (343) 555-44-33",
-      "address": {
-        "city": "Екатеринбург",
-        "street": "Ленина",
-        "house": 25,
-        "apartment": 101,
-        "postalCode": "620075"
-      },
-      "socialNetworks": [
-        {
-          "name": "Instagram",
-          "username": "anna.popova.design"
-        },
-        {
-          "name": "Behance",
-          "username": "anna_popova"
-        },
-        {
-          "name": "Telegram",
-          "username": "@anna_popova"
-        }
-      ]
-    },
-    "employment": {
-      "position": "UI/UX Designer",
-      "company": {
-        "name": "Креативная студия 'Взгляд'",
-        "industry": "Дизайн",
-        "website": "vzglyad.design"
-      },
-      "experience": 4,
-      "remote": true,
-      "portfolio": {
-        "projects": 47,
-        "clients": [
-          "Сбер",
-          "Яндекс",
-          "Лукойл"
-        ],
-        "rating": 4.9
-      }
-    },
-    "interests": {
-      "hobbies": [
-        "фотография",
-        "музыка",
-        "велоспорт",
-        "путешествия"
-      ],
-      "photography": {
-        "genre": [
-          "портрет",
-          "улица",
-          "природа"
-        ],
-        "camera": "Sony A7III",
-        "exhibitions": 2
-      },
-      "cycling": {
-        "type": "mountain bike",
-        "experience": 6,
-        "achievements": [
-          "призер городских соревнований 2022",
-          "участник веломарафонов"
-        ]
-      }
-    },
-    "education": {
-      "level": "higher",
-      "institution": "УрФУ",
-      "faculty": "Искусствоведения и дизайна",
-      "graduationYear": 2021,
-      "degree": "Бакалавр",
-      "additional": [
-        {
-          "course": "UX/UI дизайн",
-          "platform": "Нетология",
-          "year": 2022
-        },
-        {
-          "course": "Графический дизайн",
-          "platform": "Skillbox",
-          "year": 2020
-        }
-      ]
-    },
-    "settings": {
-      "isActive": true,
-      "notifications": {
-        "email": true,
-        "sms": false,
-        "push": true,
-        "telegram": true
-      },
-      "privacy": {
-        "profileVisible": "public",
-        "showLocation": true,
-        "showAge": true,
-        "showPortfolio": true
-      }
-    },
-    "statistics": {
-      "registrationDate": "2021-04-15T10:30:00Z",
-      "lastLogin": "2024-02-16T09:12:45Z",
-      "loginCount": 412,
-      "rating": 4.95,
-      "views": 12345,
-      "followers": 567
-    }
-  }
 ]

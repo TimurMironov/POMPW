@@ -1,4 +1,5 @@
 import pytest
+from loguru import logger
 
 from api_tests.src.services.users.user_client import UserClient
 
