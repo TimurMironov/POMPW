@@ -1,0 +1,8 @@
+class Contact(BaseModel):
+    email: str
+    phone: str
+    network_username: str = Field(alias='network.username')
+
+    class Config:
+        # Разрешаем доступ по точке в JSON
+        populate_by_name = True

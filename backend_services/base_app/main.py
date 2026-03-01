@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from backend_services.endpoints.users import user_service
+from backend_services.services import user_service
 
 app = FastAPI()
 

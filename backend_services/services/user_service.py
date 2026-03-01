@@ -6,7 +6,7 @@ from typing import Annotated
 from fastapi import HTTPException, Path
 from fastapi.routing import APIRouter
 
-from backend_services.users.user_model import User
+from backend_services.models.user_model import User
 
 router = APIRouter()
 
