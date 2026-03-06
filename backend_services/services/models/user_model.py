@@ -59,6 +59,10 @@ class Employment(BaseModel):
     remote: bool
 
 class Education(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True
+    )
+
     level: str = Field(...)
     institution: str
     faculty: str
@@ -81,7 +85,11 @@ class Privacy(BaseModel):
     show_age: bool = Field(..., alias="showAge")
 
 class Settings(BaseModel):
-    isActive: bool = Field(...)
+    model_config = ConfigDict(
+        populate_by_name=True
+    )
+
+    is_active: bool = Field(..., alias="isActive")
     notifications: Notifications
     privacy: Privacy
 
@@ -102,7 +110,6 @@ class User(BaseModel):
         populate_by_name=True,
     )
 
-    id: int
     personal_info: PersonalInfo = Field(..., alias="personalInfo")
     contact: Contact = Field(..., alias="contact")
     employment: Employment = Field(..., alias="employment")

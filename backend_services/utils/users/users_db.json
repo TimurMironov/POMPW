@@ -1,0 +1,502 @@
+[
+  {
+    "personalInfo": {
+      "firstName": "Дмитрий",
+      "lastName": "Смирнов",
+      "middleName": "Александрович",
+      "birthDate": "1988-11-23",
+      "age": 35,
+      "gender": "male",
+      "nationality": "Русский"
+    },
+    "contact": {
+      "email": "d.smirnov@company.ru",
+      "phone": "+7 (916) 789-45-12",
+      "address": {
+        "city": "Екатеринбург",
+        "street": "Ленина",
+        "house": 45,
+        "apartment": 78,
+        "postalCode": "620075"
+      },
+      "socialNetworks": [
+        {"name": "Telegram", "username": "@dsmirnov"},
+        {"name": "LinkedIn", "username": "dmitry-smirnov"}
+      ]
+    },
+    "employment": {
+      "position": "Product Manager",
+      "company": {"name": "Яндекс", "industry": "IT", "website": "yandex.ru"},
+      "experience": 9,
+      "remote": false
+    },
+    "education": {
+      "level": "higher",
+      "institution": "УрФУ",
+      "faculty": "Радиотехнический",
+      "graduationYear": 2010,
+      "degree": "Специалист"
+    },
+    "settings": {
+      "isActive": true,
+      "notifications": {"email": true, "sms": true, "push": false},
+      "privacy": {"profileVisible": "friends", "showLocation": true, "showAge": false}
+    },
+    "statistics": {
+      "registrationDate": "2019-08-15T11:20:00Z",
+      "lastLogin": "2024-02-16T09:15:30Z",
+      "loginCount": 567,
+      "rating": 4.9
+    }
+  },
+  {
+    "personalInfo": {
+      "firstName": "Елена",
+      "lastName": "Козлова",
+      "middleName": "Игоревна",
+      "birthDate": "1992-05-17",
+      "age": 31,
+      "gender": "female",
+      "nationality": "Русская"
+    },
+    "contact": {
+      "email": "e.kozlova@mail.ru",
+      "phone": "+7 (495) 234-67-89",
+      "address": {
+        "city": "Москва",
+        "street": "Тверская",
+        "house": 12,
+        "apartment": 45,
+        "postalCode": "125009"
+      },
+      "socialNetworks": [
+        {"name": "Telegram", "username": "@elenak"},
+        {"name": "Instagram", "username": "elena_kozlova"}
+      ]
+    },
+    "employment": {
+      "position": "Marketing Director",
+      "company": {"name": "МТС", "industry": "Telecom", "website": "mts.ru"},
+      "experience": 8,
+      "remote": true
+    },
+    "education": {
+      "level": "higher",
+      "institution": "МГУ",
+      "faculty": "Экономический",
+      "graduationYear": 2014,
+      "degree": "Магистр"
+    },
+    "settings": {
+      "isActive": true,
+      "notifications": {"email": true, "sms": false, "push": true},
+      "privacy": {"profileVisible": "all", "showLocation": false, "showAge": true}
+    },
+    "statistics": {
+      "registrationDate": "2020-03-10T14:30:00Z",
+      "lastLogin": "2024-02-18T18:45:12Z",
+      "loginCount": 342,
+      "rating": 4.7
+    }
+  },
+  {
+    "personalInfo": {
+      "firstName": "Алексей",
+      "lastName": "Попов",
+      "middleName": "Викторович",
+      "birthDate": "1985-09-03",
+      "age": 38,
+      "gender": "male",
+      "nationality": "Русский"
+    },
+    "contact": {
+      "email": "a.popov@gmail.com",
+      "phone": "+7 (812) 345-78-90",
+      "address": {
+        "city": "Санкт-Петербург",
+        "street": "Невский проспект",
+        "house": 23,
+        "apartment": 12,
+        "postalCode": "191186"
+      },
+      "socialNetworks": [
+        {"name": "Telegram", "username": "@alexpopov"},
+        {"name": "Facebook", "username": "alexey.popov"}
+      ]
+    },
+    "employment": {
+      "position": "Lead Developer",
+      "company": {"name": "VK", "industry": "IT", "website": "vk.com"},
+      "experience": 12,
+      "remote": false
+    },
+    "education": {
+      "level": "higher",
+      "institution": "СПбГУ",
+      "faculty": "Прикладная математика",
+      "graduationYear": 2007,
+      "degree": "Магистр"
+    },
+    "settings": {
+      "isActive": true,
+      "notifications": {"email": true, "sms": false, "push": true},
+      "privacy": {"profileVisible": "friends", "showLocation": false, "showAge": false}
+    },
+    "statistics": {
+      "registrationDate": "2018-11-22T09:45:00Z",
+      "lastLogin": "2024-02-17T22:10:05Z",
+      "loginCount": 891,
+      "rating": 4.9
+    }
+  },
+  {
+    "personalInfo": {
+      "firstName": "Анна",
+      "lastName": "Васильева",
+      "middleName": "Сергеевна",
+      "birthDate": "1990-12-24",
+      "age": 33,
+      "gender": "female",
+      "nationality": "Русская"
+    },
+    "contact": {
+      "email": "a.vasilieva@yandex.ru",
+      "phone": "+7 (343) 456-12-34",
+      "address": {
+        "city": "Казань",
+        "street": "Баумана",
+        "house": 56,
+        "apartment": 23,
+        "postalCode": "420111"
+      },
+      "socialNetworks": [
+        {"name": "Telegram", "username": "@annav"},
+        {"name": "VK", "username": "anna_vasilieva"}
+      ]
+    },
+    "employment": {
+      "position": "HR Director",
+      "company": {"name": "Татнефть", "industry": "Oil & Gas", "website": "tatneft.ru"},
+      "experience": 9,
+      "remote": false
+    },
+    "education": {
+      "level": "higher",
+      "institution": "КФУ",
+      "faculty": "Управление персоналом",
+      "graduationYear": 2012,
+      "degree": "Бакалавр"
+    },
+    "settings": {
+      "isActive": true,
+      "notifications": {"email": true, "sms": true, "push": true},
+      "privacy": {"profileVisible": "all", "showLocation": true, "showAge": true}
+    },
+    "statistics": {
+      "registrationDate": "2021-01-15T16:20:00Z",
+      "lastLogin": "2024-02-16T11:30:22Z",
+      "loginCount": 234,
+      "rating": 4.8
+    }
+  },
+  {
+    "personalInfo": {
+      "firstName": "Максим",
+      "lastName": "Соколов",
+      "middleName": "Иванович",
+      "birthDate": "1982-07-19",
+      "age": 41,
+      "gender": "male",
+      "nationality": "Русский"
+    },
+    "contact": {
+      "email": "m.sokolov@company.ru",
+      "phone": "+7 (831) 567-89-01",
+      "address": {
+        "city": "Нижний Новгород",
+        "street": "Большая Покровская",
+        "house": 34,
+        "apartment": 56,
+        "postalCode": "603005"
+      },
+      "socialNetworks": [
+        {"name": "Telegram", "username": "@maxsok"},
+        {"name": "LinkedIn", "username": "maxim-sokolov"}
+      ]
+    },
+    "employment": {
+      "position": "CFO",
+      "company": {"name": "ГАЗ", "industry": "Automotive", "website": "gaz.ru"},
+      "experience": 15,
+      "remote": false
+    },
+    "education": {
+      "level": "higher",
+      "institution": "ННГУ",
+      "faculty": "Финансы и кредит",
+      "graduationYear": 2004,
+      "degree": "Специалист"
+    },
+    "settings": {
+      "isActive": true,
+      "notifications": {"email": true, "sms": false, "push": false},
+      "privacy": {"profileVisible": "friends", "showLocation": false, "showAge": false}
+    },
+    "statistics": {
+      "registrationDate": "2017-06-05T10:15:00Z",
+      "lastLogin": "2024-02-15T14:25:40Z",
+      "loginCount": 678,
+      "rating": 4.8
+    }
+  },
+  {
+    "personalInfo": {
+      "firstName": "Ольга",
+      "lastName": "Новикова",
+      "middleName": "Дмитриевна",
+      "birthDate": "1995-03-12",
+      "age": 28,
+      "gender": "female",
+      "nationality": "Русская"
+    },
+    "contact": {
+      "email": "o.novikova@mail.ru",
+      "phone": "+7 (383) 678-90-12",
+      "address": {
+        "city": "Новосибирск",
+        "street": "Красный проспект",
+        "house": 78,
+        "apartment": 34,
+        "postalCode": "630099"
+      },
+      "socialNetworks": [
+        {"name": "Telegram", "username": "@olgan"},
+        {"name": "Instagram", "username": "olga_novikova"}
+      ]
+    },
+    "employment": {
+      "position": "UI/UX Designer",
+      "company": {"name": "2ГИС", "industry": "IT", "website": "2gis.ru"},
+      "experience": 5,
+      "remote": true
+    },
+    "education": {
+      "level": "higher",
+      "institution": "НГТУ",
+      "faculty": "Дизайн",
+      "graduationYear": 2017,
+      "degree": "Бакалавр"
+    },
+    "settings": {
+      "isActive": true,
+      "notifications": {"email": true, "sms": true, "push": true},
+      "privacy": {"profileVisible": "all", "showLocation": true, "showAge": false}
+    },
+    "statistics": {
+      "registrationDate": "2022-04-18T12:45:00Z",
+      "lastLogin": "2024-02-18T09:50:17Z",
+      "loginCount": 156,
+      "rating": 4.9
+    }
+  },
+  {
+    "personalInfo": {
+      "firstName": "Сергей",
+      "lastName": "Морозов",
+      "middleName": "Петрович",
+      "birthDate": "1980-11-30",
+      "age": 43,
+      "gender": "male",
+      "nationality": "Русский"
+    },
+    "contact": {
+      "email": "s.morozov@company.ru",
+      "phone": "+7 (863) 789-01-23",
+      "address": {
+        "city": "Ростов-на-Дону",
+        "street": "Большая Садовая",
+        "house": 45,
+        "apartment": 67,
+        "postalCode": "344022"
+      },
+      "socialNetworks": [
+        {"name": "Telegram", "username": "@sermor"},
+        {"name": "Facebook", "username": "sergey.morozov"}
+      ]
+    },
+    "employment": {
+      "position": "CTO",
+      "company": {"name": "Ростелеком", "industry": "Telecom", "website": "rt.ru"},
+      "experience": 18,
+      "remote": false
+    },
+    "education": {
+      "level": "higher",
+      "institution": "ЮФУ",
+      "faculty": "Информационные системы",
+      "graduationYear": 2002,
+      "degree": "Специалист"
+    },
+    "settings": {
+      "isActive": true,
+      "notifications": {"email": true, "sms": true, "push": false},
+      "privacy": {"profileVisible": "friends", "showLocation": false, "showAge": true}
+    },
+    "statistics": {
+      "registrationDate": "2016-09-20T08:30:00Z",
+      "lastLogin": "2024-02-17T16:40:33Z",
+      "loginCount": 1023,
+      "rating": 4.8
+    }
+  },
+  {
+    "personalInfo": {
+      "firstName": "Татьяна",
+      "lastName": "Волкова",
+      "middleName": "Андреевна",
+      "birthDate": "1987-08-05",
+      "age": 36,
+      "gender": "female",
+      "nationality": "Русская"
+    },
+    "contact": {
+      "email": "t.volkova@yandex.ru",
+      "phone": "+7 (846) 890-12-34",
+      "address": {
+        "city": "Самара",
+        "street": "Куйбышева",
+        "house": 67,
+        "apartment": 89,
+        "postalCode": "443099"
+      },
+      "socialNetworks": [
+        {"name": "Telegram", "username": "@tanyav"},
+        {"name": "VK", "username": "tatyana_volkova"}
+      ]
+    },
+    "employment": {
+      "position": "Project Manager",
+      "company": {"name": "Сбербанк", "industry": "Finance", "website": "sberbank.ru"},
+      "experience": 10,
+      "remote": false
+    },
+    "education": {
+      "level": "higher",
+      "institution": "СамГУ",
+      "faculty": "Менеджмент",
+      "graduationYear": 2009,
+      "degree": "Специалист"
+    },
+    "settings": {
+      "isActive": true,
+      "notifications": {"email": true, "sms": false, "push": true},
+      "privacy": {"profileVisible": "friends", "showLocation": true, "showAge": false}
+    },
+    "statistics": {
+      "registrationDate": "2019-12-01T13:10:00Z",
+      "lastLogin": "2024-02-16T20:15:48Z",
+      "loginCount": 445,
+      "rating": 4.7
+    }
+  },
+  {
+    "personalInfo": {
+      "firstName": "Иван",
+      "lastName": "Федоров",
+      "middleName": "Николаевич",
+      "birthDate": "1993-06-21",
+      "age": 30,
+      "gender": "male",
+      "nationality": "Русский"
+    },
+    "contact": {
+      "email": "i.fedorov@gmail.com",
+      "phone": "+7 (473) 901-23-45",
+      "address": {
+        "city": "Воронеж",
+        "street": "Плехановская",
+        "house": 34,
+        "apartment": 56,
+        "postalCode": "394018"
+      },
+      "socialNetworks": [
+        {"name": "Telegram", "username": "@ivanf"},
+        {"name": "GitHub", "username": "ivan-fedorov"}
+      ]
+    },
+    "employment": {
+      "position": "DevOps Engineer",
+      "company": {"name": "Авито", "industry": "IT", "website": "avito.ru"},
+      "experience": 6,
+      "remote": true
+    },
+    "education": {
+      "level": "higher",
+      "institution": "ВГУ",
+      "faculty": "Компьютерные науки",
+      "graduationYear": 2015,
+      "degree": "Бакалавр"
+    },
+    "settings": {
+      "isActive": true,
+      "notifications": {"email": true, "sms": true, "push": true},
+      "privacy": {"profileVisible": "all", "showLocation": false, "showAge": true}
+    },
+    "statistics": {
+      "registrationDate": "2021-07-14T15:25:00Z",
+      "lastLogin": "2024-02-18T10:22:09Z",
+      "loginCount": 289,
+      "rating": 4.9
+    }
+  },
+  {
+    "personalInfo": {
+      "firstName": "Наталья",
+      "lastName": "Лебедева",
+      "middleName": "Алексеевна",
+      "birthDate": "1984-02-14",
+      "age": 39,
+      "gender": "female",
+      "nationality": "Русская"
+    },
+    "contact": {
+      "email": "n.lebedeva@company.ru",
+      "phone": "+7 (391) 012-34-56",
+      "address": {
+        "city": "Красноярск",
+        "street": "Мира",
+        "house": 89,
+        "apartment": 12,
+        "postalCode": "660049"
+      },
+      "socialNetworks": [
+        {"name": "Telegram", "username": "@natleb"},
+        {"name": "LinkedIn", "username": "natalya-lebedeva"}
+      ]
+    },
+    "employment": {
+      "position": "Legal Counsel",
+      "company": {"name": "Норникель", "industry": "Mining", "website": "nornickel.ru"},
+      "experience": 13,
+      "remote": false
+    },
+    "education": {
+      "level": "higher",
+      "institution": "СФУ",
+      "faculty": "Юридический",
+      "graduationYear": 2006,
+      "degree": "Специалист"
+    },
+    "settings": {
+      "isActive": true,
+      "notifications": {"email": true, "sms": false, "push": false},
+      "privacy": {"profileVisible": "friends", "showLocation": true, "showAge": false}
+    },
+    "statistics": {
+      "registrationDate": "2018-03-27T11:55:00Z",
+      "lastLogin": "2024-02-17T13:35:21Z",
+      "loginCount": 534,
+      "rating": 4.8
+    }
+  }
+]

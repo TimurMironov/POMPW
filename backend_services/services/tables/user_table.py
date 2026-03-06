@@ -4,7 +4,7 @@ from typing import Optional
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import Integer, String, DateTime, ForeignKey, JSON, Boolean, Float
 
-from backend_services.tables.base_table import Base
+from backend_services.services.tables.base_table import Base
 
 
 class User(Base):
@@ -60,7 +60,8 @@ class Education(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     user_id: Mapped[int] = mapped_column(ForeignKey('user.id'))
     level: Mapped[str] = mapped_column(String(30), nullable=False)
-    industry: Mapped[str] = mapped_column(String(30))
+    institution: Mapped[str] = mapped_column(String(30))
+    faculty: Mapped[str] = mapped_column(String(30))
     graduation_year: Mapped[str] = mapped_column(String(30), nullable=False)
     degree: Mapped[str] = mapped_column(String(30))
 
