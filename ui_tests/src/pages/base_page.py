@@ -5,7 +5,6 @@ from ui_tests.src.pages.components import SideBarComponent
 
 
 class BasePage:
-
     def __init__(self, page: Page) -> None:
         self.page = page
 
@@ -23,7 +22,7 @@ class BasePage:
         allure.attach(
             body=self.page.screenshot(),
             name="screenshot.png",
-            attachment_type=allure.attachment_type.PNG
+            attachment_type=allure.attachment_type.PNG,
         )
 
     @property

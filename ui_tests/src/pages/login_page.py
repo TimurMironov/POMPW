@@ -1,5 +1,5 @@
 import allure
-from playwright.sync_api import expect, Page
+from playwright.sync_api import Page, expect
 
 from ui_tests.src.config.links import Links
 from ui_tests.src.pages.base_page import BasePage
@@ -12,7 +12,7 @@ class LoginPage(BasePage):
     PASSWORD_LOCATOR = "//input[@name='password']"
     LOGIN_BUTTON_LOCATOR = "//button[@type='submit']"
 
-    def __init__(self, page:Page) -> None:
+    def __init__(self, page: Page) -> None:
         super().__init__(page)
         self.username_locator = page.locator(self.USERNAME_LOCATOR)
         self.password_locator = page.locator(self.PASSWORD_LOCATOR)

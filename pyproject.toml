@@ -17,5 +17,36 @@ dependencies = [
     "uvicorn>=0.41.0",
     "loguru",
     "sqlalchemy>=2.0.46",
-    "psycopg2-binary>=2.9.0"
+    "psycopg2-binary>=2.9.0",
+    "ruff>=0.15.13",
+    "pre-commit>=4.6.0",
 ]
+
+
+[tool.ruff]
+# Настройки, общие для линтинга и форматирования
+target-version = "py311"        # Минимальная версия Python
+line-length = 88                # Стандартная длина строки
+
+# ----- НАСТРОЙКИ ЛИНТЕРА -----
+[tool.ruff.lint]
+select = [
+    "E", "F", "W",   # Базовые ошибки (pycodestyle, Pyflakes)
+    "I",             # Сортировка импортов
+    "UP",            # Обновление синтаксиса до новых версий Python
+]
+
+# Правила, которые можно игнорировать глобально
+ignore = []
+
+unfixable = ["F401"]  # F401 — это код правила "неиспользуемый import"
+
+# Игнорирование определенных правил для конкретных файлов или папок
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101"]            # В тестах разрешаем использование assert
+"__init__.py" = ["F401"]        # В __init__.py разрешаем неиспользуемые импорты
+
+# ----- НАСТРОЙКИ ФОРМАТТЕРА -----
+[tool.ruff.format]
+quote-style = "double"          # Использовать двойные кавычки [citation:2][citation:6]
+indent-style = "space"          # Использовать пробелы для отступов [citation:6]

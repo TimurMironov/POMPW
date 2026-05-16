@@ -7,7 +7,6 @@ from api_tests.src.config.headers import Headers
 
 
 class BaseClient:
-
     def __init__(self, headers: dict = None):
         self.host = Host()
         self.session = requests.Session()

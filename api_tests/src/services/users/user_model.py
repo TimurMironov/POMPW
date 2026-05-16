@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from pydantic import BaseModel, Field, ConfigDict, EmailStr
+from pydantic import BaseModel, ConfigDict, EmailStr, Field
 
 
 class PersonalInfo(BaseModel):
@@ -28,9 +28,11 @@ class Address(BaseModel):
     apartment: int = Field(...)
     postal_code: str = Field(..., alias="postalCode")
 
+
 class SocialNetwork(BaseModel):
     name: str = Field(...)
     username: str = Field(...)
+
 
 class Contact(BaseModel):
     model_config = ConfigDict(
@@ -48,6 +50,7 @@ class Company(BaseModel):
     industry: str
     website: str
 
+
 class Employment(BaseModel):
     model_config = ConfigDict(
         populate_by_name=True,
@@ -57,6 +60,7 @@ class Employment(BaseModel):
     company: Company
     experience: int = Field(...)
     remote: bool
+
 
 class Education(BaseModel):
     level: str = Field(...)
@@ -71,14 +75,14 @@ class Notifications(BaseModel):
     sms: bool
     push: bool
 
+
 class Privacy(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True
-    )
+    model_config = ConfigDict(populate_by_name=True)
 
     profile_visible: str = Field(..., alias="profileVisible")
     show_location: bool = Field(..., alias="showLocation")
     show_age: bool = Field(..., alias="showAge")
+
 
 class Settings(BaseModel):
     isActive: bool = Field(...)

@@ -12,13 +12,15 @@ engine = create_engine(
     SQL_DB_URL,
     echo=True,  # будет видеть все SQL запросы в консоли (полезно для отладки)
     pool_size=5,  # размер пула соединений
-    max_overflow=10  # максимум доп. соединений)
+    max_overflow=10,  # максимум доп. соединений)
 )
 
 session_maker = sessionmaker(autoflush=False, autocommit=False, bind=engine)
 
+
 def create_tables():
     Base.metadata.create_all(engine)
+
 
 def create_database_if_not_exists():
     DB_USER = "postgres"
@@ -32,7 +34,7 @@ def create_database_if_not_exists():
         password=DB_PASSWORD,
         host=DB_HOST,
         port=DB_PORT,
-        database="postgres"
+        database="postgres",
     )
     conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
     cursor = conn.cursor()
@@ -48,6 +50,7 @@ def create_database_if_not_exists():
     cursor.close()
     conn.close()
 
+
 def get_db():
     db = session_maker()
     try:
@@ -55,12 +58,18 @@ def get_db():
     finally:
         db.close()
 
+
 if __name__ == "__main__":
     create_database_if_not_exists()
 
-    from backend_services.services.tables.user_table import (
-        User, PersonalInfo, Contact, Employment,
-        Education, Settings, Statistics
+    from backend_services.services.tables.user_table import (  # noqa: F401
+        Contact,
+        Education,
+        Employment,
+        PersonalInfo,
+        Settings,
+        Statistics,
+        User,
     )
 
     create_tables()

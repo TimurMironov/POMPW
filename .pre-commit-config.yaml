@@ -1,0 +1,19 @@
+repos:
+  # Базовые хуки для общих задач
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace      # Удаляет пробелы в конце строк
+      - id: end-of-file-fixer        # Добавляет пустую строку в конце файла
+      - id: check-yaml               # Проверяет синтаксис YAML
+      - id: check-toml               # Проверяет синтаксис TOML
+      - id: check-added-large-files  # Не допускает большие файлы
+        args: ['--maxkb=1000']       # Максимум 1MB
+
+  # Ruff: линтер и форматтер
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.8.6                      # Используйте актуальную версию
+    hooks:
+      - id: ruff                     # Запуск линтера
+#        args: [--fix]                # Автоисправление ошибок
+      - id: ruff-format              # Запуск форматтера

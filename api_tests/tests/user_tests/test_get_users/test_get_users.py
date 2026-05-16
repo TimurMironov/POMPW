@@ -4,7 +4,6 @@ from api_tests.src.services.users.user_client import UserClient
 
 
 class TestGetUsers:
-
     @pytest.mark.api_tests
     def test_get_users(self):
         user_client = UserClient()

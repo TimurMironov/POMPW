@@ -5,7 +5,6 @@ from api_tests.tests.data.user_test_data.constants import CreateUserTestType
 
 
 class UserPayloads:
-
     @staticmethod
     def create_user_payload(user_type: CreateUserTestType) -> dict:
         path = Path(__file__).parent
@@ -16,6 +15,6 @@ class UserPayloads:
         else:
             raise ValueError(f"Unknown user type: {user_type}")
 
-        with open(path, 'r', encoding='utf-8') as file:
+        with open(path, encoding="utf-8") as file:
             json_data = json.load(file)
             return json_data

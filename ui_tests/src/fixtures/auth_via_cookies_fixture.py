@@ -1,5 +1,5 @@
 import pytest
-from playwright.sync_api import BrowserContext, Browser
+from playwright.sync_api import Browser, BrowserContext
 
 from ui_tests.src.config.data import Data
 
@@ -22,7 +22,7 @@ def auth_cookies(browser: Browser):
     return cookies
 
 
-@pytest.fixture(scope='function')
+@pytest.fixture(scope="function")
 def auth_via_cookie(context: BrowserContext, auth_cookies):
     context.add_cookies(auth_cookies)
     return context
