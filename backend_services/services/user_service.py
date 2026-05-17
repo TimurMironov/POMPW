@@ -37,7 +37,7 @@ async def add_user(user: User):
     users_path_json = FilePath(__file__).parent / "users.json"
     with open(users_path_json, encoding="utf-8") as file:
         all_users: list = json.load(file)
-    all_users.append(user)
+    all_users.append(user.model_dump(by_alias=True))
     with open(users_path_json, "w", encoding="utf-8") as file:
         json.dump(all_users, file, indent=4, ensure_ascii=False)
 

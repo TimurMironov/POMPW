@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from pydantic import BaseModel, ConfigDict, EmailStr, Field
+from pydantic import BaseModel, ConfigDict, EmailStr, Field, field_serializer
 
 
 class PersonalInfo(BaseModel):
@@ -104,12 +104,17 @@ class Statistics(BaseModel):
     login_count: int = Field(..., alias="loginCount")
     rating: float = Field(..., alias="rating")
 
+    @field_serializer("registration_date", "last_login")
+    def datetime_serializer(self, dt: datetime) -> str:
+        return dt.isoformat()
+
 
 class User(BaseModel):
     model_config = ConfigDict(
         populate_by_name=True,
     )
 
+    id: int
     personal_info: PersonalInfo = Field(..., alias="personalInfo")
     contact: Contact = Field(..., alias="contact")
     employment: Employment = Field(..., alias="employment")
