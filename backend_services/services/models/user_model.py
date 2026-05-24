@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, EmailStr, Field, field_serializer
 
@@ -13,7 +14,7 @@ class PersonalInfo(BaseModel):
     middle_name: str = Field(alias="middleName")
     birth_date: str = Field(alias="birthDate")
     age: int = Field(alias="age")
-    gender: str = Field(...)
+    gender: Literal["male", "female"] = Field(...)
     nationality: str = Field(alias="nationality", default="Not defined")
 
 
@@ -114,7 +115,7 @@ class User(BaseModel):
         populate_by_name=True,
     )
 
-    id: int
+    id: int | None = None
     personal_info: PersonalInfo = Field(..., alias="personalInfo")
     contact: Contact = Field(..., alias="contact")
     employment: Employment = Field(..., alias="employment")

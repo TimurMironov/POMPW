@@ -1,45 +1,70 @@
-import json
-from pathlib import Path as FilePath
 from typing import Annotated
 
 from fastapi import HTTPException, Path
+from fastapi.params import Depends
 from fastapi.routing import APIRouter
+from sqlalchemy.orm import Session, joinedload
 
+from backend_services.base_app.database import get_db
 from backend_services.services.models.user_model import User
+from backend_services.services.tables.user_table import User as UserDB
+from backend_services.utils.helpers import prepare_user_for_db
 
 router = APIRouter()
 
 
-@router.get("/users")
-async def get_users():
-    users_path_json = FilePath(__file__).parent / "users.json"
-    with open(users_path_json, encoding="utf-8") as file:
-        users_list = json.load(file)
-    return users_list
+@router.get("/users", response_model=list[User])
+async def get_users(session: Session = Depends(get_db)):
+    all_users = (
+        session.query(UserDB)
+        .options(
+            joinedload(UserDB.personal_info),
+            joinedload(UserDB.contact),
+            joinedload(UserDB.employment),
+            joinedload(UserDB.education),
+            joinedload(UserDB.settings),
+            joinedload(UserDB.statistics),
+        )
+        .all()
+    )
+    return all_users
 
 
-@router.get("/users/{user_id}")
+@router.get("/users/{user_id}", response_model=User)
 async def get_user(
     user_id: Annotated[int, Path(..., ge=1, title="ID пользователя")],
+    session: Session = Depends(get_db),
 ) -> User:
-    users_path_json = FilePath(__file__).parent / "users.json"
-    with open(users_path_json, encoding="utf-8") as file:
-        users_list: list[dict] = json.load(file)
-    for user in users_list:
-        if user.get("id") == user_id:
-            return User.model_validate(user)
-    raise HTTPException(status_code=404, detail="User not Found")
+    user = (
+        session.query(UserDB)
+        .options(
+            joinedload(UserDB.personal_info),
+            joinedload(UserDB.contact),
+            joinedload(UserDB.employment),
+            joinedload(UserDB.education),
+            joinedload(UserDB.settings),
+            joinedload(UserDB.statistics),
+        )
+        .filter(UserDB.id == user_id)
+        .first()
+    )
+    if user is None:
+        raise HTTPException(status_code=404, detail="User not Found")
+    return user
 
 
 @router.post("/users/add")
-async def add_user(user: User):
-    User.model_validate(user)
-    users_path_json = FilePath(__file__).parent / "users.json"
-    with open(users_path_json, encoding="utf-8") as file:
-        all_users: list = json.load(file)
-    all_users.append(user.model_dump(by_alias=True))
-    with open(users_path_json, "w", encoding="utf-8") as file:
-        json.dump(all_users, file, indent=4, ensure_ascii=False)
+async def add_user(user: User, session: Session = Depends(get_db)):
+    validated_user = User.model_validate(user)
+    user_db = prepare_user_for_db(validated_user)
+    session.add(user_db)
+    session.commit()
+
+    return {
+        "status": "success",
+        "message": "User created successfully",
+        "user_id": user_db.id,
+    }
 
 
 # Query() описывает то что идет после ? в url

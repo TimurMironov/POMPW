@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Optional
+from typing import Literal, Optional
 
 from sqlalchemy import JSON, Boolean, DateTime, Float, ForeignKey, Integer, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
@@ -40,6 +40,7 @@ class PersonalInfo(Base):
     middle_name: Mapped[str | None] = mapped_column(String(30))
     birth_date: Mapped[str] = mapped_column(String)
     age: Mapped[int] = mapped_column(Integer)
+    gender: Mapped[Literal["male", "female"]] = mapped_column(String)
 
     user: Mapped[User] = relationship(back_populates="personal_info", uselist=False)
 

@@ -4,6 +4,7 @@
 .idea
 reports
 allure-report
+allure-results
 *.iml
 leetcode.py
 fg.py
