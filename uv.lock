@@ -507,39 +507,63 @@ wheels = [
 name = "pompw"
 version = "0.1.0"
 source = { virtual = "." }
-dependencies = [
+
+[package.dev-dependencies]
+api-tests = [
     { name = "allure-pytest" },
     { name = "faker" },
-    { name = "fastapi", extra = ["standard"] },
     { name = "loguru" },
-    { name = "playwright" },
-    { name = "pre-commit" },
-    { name = "psycopg2-binary" },
-    { name = "pydantic", extra = ["email"] },
     { name = "pytest" },
-    { name = "pytest-playwright" },
     { name = "python-dotenv" },
     { name = "requests" },
-    { name = "ruff" },
+]
+backend = [
+    { name = "fastapi", extra = ["standard"] },
+    { name = "loguru" },
+    { name = "psycopg2-binary" },
+    { name = "pydantic", extra = ["email"] },
+    { name = "python-dotenv" },
     { name = "sqlalchemy" },
+]
+dev = [
+    { name = "pre-commit" },
+    { name = "ruff" },
+]
+web-tests = [
+    { name = "loguru" },
+    { name = "playwright" },
+    { name = "pytest" },
+    { name = "pytest-playwright" },
 ]
 
 [package.metadata]
-requires-dist = [
+
+[package.metadata.requires-dev]
+api-tests = [
     { name = "allure-pytest", specifier = "==2.15.3" },
     { name = "faker", specifier = "==40.1.0" },
-    { name = "fastapi", extras = ["standard"], specifier = ">=0.129.0" },
     { name = "loguru" },
-    { name = "playwright", specifier = "==1.57.0" },
-    { name = "pre-commit", specifier = ">=4.6.0" },
-    { name = "psycopg2-binary", specifier = ">=2.9.0" },
-    { name = "pydantic", extras = ["email"], specifier = "==2.12.5" },
     { name = "pytest", specifier = "==9.0.2" },
-    { name = "pytest-playwright", specifier = "==0.7.2" },
     { name = "python-dotenv", specifier = "==1.2.1" },
     { name = "requests", specifier = "==2.32.5" },
-    { name = "ruff", specifier = ">=0.15.13" },
+]
+backend = [
+    { name = "fastapi", extras = ["standard"], specifier = ">=0.129.0" },
+    { name = "loguru" },
+    { name = "psycopg2-binary", specifier = ">=2.9.0" },
+    { name = "pydantic", extras = ["email"], specifier = "==2.12.5" },
+    { name = "python-dotenv", specifier = "==1.2.1" },
     { name = "sqlalchemy", specifier = ">=2.0.46" },
+]
+dev = [
+    { name = "pre-commit", specifier = ">=4.6.0" },
+    { name = "ruff", specifier = ">=0.15.13" },
+]
+web-tests = [
+    { name = "loguru" },
+    { name = "playwright", specifier = "==1.57.0" },
+    { name = "pytest", specifier = "==9.0.2" },
+    { name = "pytest-playwright", specifier = "==0.7.2" },
 ]
 
 [[package]]
