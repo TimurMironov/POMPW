@@ -5,6 +5,8 @@ from backend_services.services import user_service
 
 # create_database_if_not_exists()
 create_tables()
+# with session_maker() as session:
+#     fill_users_tables(session)
 
 app = FastAPI()
 app.include_router(user_service.router)

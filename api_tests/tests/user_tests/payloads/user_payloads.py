@@ -1,7 +1,11 @@
 import json
+from enum import StrEnum
 from pathlib import Path
 
-from api_tests.tests.data.user_test_data.constants import CreateUserTestType
+
+class CreateUserTestType(StrEnum):
+    valid = "valid"
+    invalid = "invalid"
 
 
 class UserPayloads:

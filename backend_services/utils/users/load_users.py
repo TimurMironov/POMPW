@@ -8,7 +8,7 @@ from backend_services.utils.helpers import prepare_user_for_db
 
 
 def fill_users_tables(session: Session):
-    path = Path(__file__).parent / "users_db.json"
+    path = Path(__file__).parent / "users_db_new.json"
     with open(path, encoding="utf-8") as users:
         users_list = json.load(users)
 

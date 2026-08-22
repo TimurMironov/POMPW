@@ -37,10 +37,6 @@ if __name__ == "__main__":
 
     from backend_services.services.tables.user_table import (  # noqa: F401
         Contact,
-        Education,
-        Employment,
-        PersonalInfo,
-        Settings,
         Statistics,
         User,
     )

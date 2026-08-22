@@ -18,11 +18,7 @@ async def get_users(session: Session = Depends(get_db)):
     all_users = (
         session.query(UserDB)
         .options(
-            joinedload(UserDB.personal_info),
             joinedload(UserDB.contact),
-            joinedload(UserDB.employment),
-            joinedload(UserDB.education),
-            joinedload(UserDB.settings),
             joinedload(UserDB.statistics),
         )
         .all()
@@ -38,11 +34,7 @@ async def get_user(
     user = (
         session.query(UserDB)
         .options(
-            joinedload(UserDB.personal_info),
             joinedload(UserDB.contact),
-            joinedload(UserDB.employment),
-            joinedload(UserDB.education),
-            joinedload(UserDB.settings),
             joinedload(UserDB.statistics),
         )
         .filter(UserDB.id == user_id)
