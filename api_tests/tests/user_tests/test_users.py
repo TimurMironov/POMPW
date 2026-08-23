@@ -11,7 +11,8 @@ class TestUsers:
 
     @pytest.mark.api_tests
     def test_get_user(self, user_client, created_user):
-        user_client.get_user(created_user)
+        user_id, user = created_user
+        user_client.get_user(user_id)
 
     @pytest.mark.api_tests
     def test_get_users(self, user_client):

@@ -17,6 +17,6 @@ def created_user(user_client):
     user = user_client.create_user(user_data=user_data)
     user_id = user.json().get("user_id")
 
-    yield user_id
+    yield user_id, user
 
     user_client.delete_user(user_id=user_id)

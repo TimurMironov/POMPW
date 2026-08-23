@@ -45,7 +45,7 @@ async def get_user(
     return user
 
 
-@router.post("/users/add")
+@router.post("/users")
 async def add_user(user: User, session: Session = Depends(get_db)):
     validated_user = User.model_validate(user)
     user_db = prepare_user_for_db(validated_user)
@@ -59,7 +59,7 @@ async def add_user(user: User, session: Session = Depends(get_db)):
     }
 
 
-@router.delete("/users/delete/{user_id}")
+@router.delete("/users/{user_id}")
 async def delete_user(
     user_id: Annotated[int, Path(..., ge=1, title="ID пользователя")],
     session: Session = Depends(get_db),

@@ -32,7 +32,6 @@ class UserClient(BaseClient):
             json=user_data,
             **kwargs,
         )
-        print(response)
         assert response.status_code == 200
         return response
 

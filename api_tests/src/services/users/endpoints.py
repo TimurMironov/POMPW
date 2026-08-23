@@ -11,8 +11,8 @@ class Endpoints:
 
     @classmethod
     def create_user(cls) -> str:
-        return f"{cls.USERS}/add"
+        return f"{cls.USERS}"
 
     @classmethod
     def delete_user(cls, user_id: int) -> str:
-        return f"/users/delete/{user_id}"
+        return f"{cls.USERS}/{user_id}"
