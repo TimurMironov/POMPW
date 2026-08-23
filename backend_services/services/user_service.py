@@ -59,4 +59,21 @@ async def add_user(user: User, session: Session = Depends(get_db)):
     }
 
 
+@router.delete("/users/delete/{user_id}")
+async def delete_user(
+    user_id: Annotated[int, Path(..., ge=1, title="ID пользователя")],
+    session: Session = Depends(get_db),
+):
+    user_db = session.query(UserDB).filter(UserDB.id == user_id).first()
+    if user_db is None:
+        raise HTTPException(status_code=404, detail="User not Found")
+    session.delete(user_db)
+    session.commit()
+
+    return {
+        "status": "success",
+        "message": "User deleted successfully",
+    }
+
+
 # Query() описывает то что идет после ? в url
