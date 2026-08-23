@@ -16,6 +16,7 @@ class User(Base):
     birth_date: Mapped[str] = mapped_column(String)
     age: Mapped[int] = mapped_column(Integer)
     gender: Mapped[Literal["male", "female"]] = mapped_column(String)
+    nationality: Mapped[str] = mapped_column(String)
 
     contact: Mapped[Optional["Contact"]] = relationship(
         back_populates="user", cascade="all, delete-orphan", uselist=False

@@ -29,7 +29,7 @@ class Contact(BaseModel):
     email: EmailStr = Field(...)
     phone: str = Field(...)
     address: Address = Field(...)
-    networks: list[SocialNetwork] = Field(alias="socialNetworks")
+    social_networks: list[SocialNetwork] = Field(alias="networks")
 
 
 class Statistics(BaseModel):

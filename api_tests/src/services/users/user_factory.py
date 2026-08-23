@@ -14,10 +14,10 @@ class UserFactory:
         birth_date = faker.date_of_birth(minimum_age=18, maximum_age=60)
 
         return {
-            "firstName": faker.first_name(),
-            "lastName": faker.last_name(),
-            "middleName": faker.middle_name(),
-            "birthDate": birth_date.isoformat(),
+            "first_name": faker.first_name(),
+            "last_name": faker.last_name(),
+            "middle_name": faker.middle_name(),
+            "birth_date": birth_date.isoformat(),
             "age": (datetime.now().date() - birth_date).days // 365,
             "gender": random.choice(self.GENDERS),
             "nationality": random.choice(self.NATIONALITY),
@@ -29,9 +29,9 @@ class UserFactory:
                     "street": faker.street_name(),
                     "house": random.randint(1, 150),
                     "apartment": random.randint(1, 150),
-                    "postalCode": faker.postcode(),
+                    "postal_code": faker.postcode(),
                 },
-                "socialNetworks": [
+                "social_networks": [
                     {
                         "name": random.choice(self.SOCIAL_NETWORKS),
                         "username": faker.user_name(),
@@ -43,9 +43,9 @@ class UserFactory:
                 ],
             },
             "statistics": {
-                "registrationDate": faker.date_time_this_year().isoformat(),
-                "lastLogin": faker.date_time_this_month().isoformat(),
-                "loginCount": random.randint(1, 1000),
+                "registration_date": faker.date_time_this_year().isoformat(),
+                "last_login": faker.date_time_this_month().isoformat(),
+                "login_count": random.randint(1, 1000),
                 "rating": round(random.uniform(1.0, 5.0), 1),
             },
         }

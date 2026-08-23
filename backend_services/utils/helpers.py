@@ -11,7 +11,7 @@ def prepare_user_for_db(user: UserModel) -> User:
         email=user.contact.email,
         phone=user.contact.phone,
         address=user.contact.address.model_dump(),
-        networks=[network.model_dump() for network in user.contact.networks],
+        networks=[network.model_dump() for network in user.contact.social_networks],
     )
 
     statistics = Statistics(
@@ -28,6 +28,7 @@ def prepare_user_for_db(user: UserModel) -> User:
         birth_date=user.birth_date,
         age=user.age,
         gender=user.gender,
+        nationality=user.nationality,
         contact=contact,
         statistics=statistics,
     )
