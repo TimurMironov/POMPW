@@ -3,7 +3,7 @@ import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from backend_services.services.tables.base_table import Base
+from backend_services.services.base_table import Base
 from backend_services.utils.users.load_users import fill_users_tables
 
 SQL_DB_URL = os.getenv(
@@ -35,7 +35,7 @@ def get_db():
 if __name__ == "__main__":
     # create_database_if_not_exists()
 
-    from backend_services.services.tables.user_table import (  # noqa: F401
+    from backend_services.services.user_service.user_table import (  # noqa: F401
         Contact,
         Statistics,
         User,

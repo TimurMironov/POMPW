@@ -53,7 +53,7 @@ class User(BaseModel):
     )
 
     id: int | None = None
-    first_name: str = Field(..., alias="firstName")
+    first_name: str = Field(..., alias="firstName", min_length=1)
     last_name: str = Field(..., alias="lastName")
     middle_name: str = Field(alias="middleName")
     birth_date: str = Field(alias="birthDate")

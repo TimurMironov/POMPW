@@ -1,5 +1,5 @@
-from backend_services.services.models.user_model import User as UserModel
-from backend_services.services.tables.user_table import (
+from backend_services.services.user_service.user_model import User as UserModel
+from backend_services.services.user_service.user_table import (
     Contact,
     Statistics,
     User,

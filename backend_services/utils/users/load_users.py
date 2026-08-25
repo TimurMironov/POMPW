@@ -3,7 +3,7 @@ from pathlib import Path
 
 from sqlalchemy.orm import Session
 
-from backend_services.services.models.user_model import User as UserSchema
+from backend_services.services.user_service.user_model import User as UserSchema
 from backend_services.utils.helpers import prepare_user_for_db
 
 

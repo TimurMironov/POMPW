@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
 from backend_services.base_app.database import create_tables
-from backend_services.services import user_service
+from backend_services.services.user_service import user_service
 
 # create_database_if_not_exists()
 create_tables()

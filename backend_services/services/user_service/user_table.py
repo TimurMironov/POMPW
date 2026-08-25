@@ -4,7 +4,7 @@ from typing import Literal, Optional
 from sqlalchemy import JSON, DateTime, Float, ForeignKey, Integer, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from backend_services.services.tables.base_table import Base
+from backend_services.services.base_table import Base
 
 
 class User(Base):

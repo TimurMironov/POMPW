@@ -6,8 +6,8 @@ from fastapi.routing import APIRouter
 from sqlalchemy.orm import Session, joinedload
 
 from backend_services.base_app.database import get_db
-from backend_services.services.models.user_model import User
-from backend_services.services.tables.user_table import User as UserDB
+from backend_services.services.user_service.user_model import User
+from backend_services.services.user_service.user_table import User as UserDB
 from backend_services.utils.helpers import prepare_user_for_db
 
 router = APIRouter()

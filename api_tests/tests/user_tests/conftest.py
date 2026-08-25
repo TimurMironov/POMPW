@@ -11,12 +11,16 @@ def user_client():
 
 
 @pytest.fixture
-def created_user(user_client):
-    user_data = UserFactory().create_user()
-    User.model_validate(user_data)
-    user = user_client.create_user(user_data=user_data)
+def generated_user():
+    return UserFactory().create_user()
+
+
+@pytest.fixture
+def created_user(user_client, generated_user):
+    User.model_validate(generated_user)
+    user = user_client.create_user(user_data=generated_user)
     user_id = user.json().get("user_id")
 
-    yield user_id, user_data
+    yield user_id, generated_user
 
     user_client.delete_user(user_id=user_id)
