@@ -42,3 +42,9 @@ class UserClient(BaseClient):
         )
         assert response.status_code == 200
         return response
+
+    def search_user_by_email(self, email: str, **kwargs):
+        return self.get(
+            endpoint=Endpoints.get_by_email(email),
+            **kwargs,
+        )

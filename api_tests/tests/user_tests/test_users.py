@@ -1,3 +1,4 @@
+import allure
 import pytest
 
 from api_tests.src.services.users.endpoints import Endpoints
@@ -51,13 +52,26 @@ class TestUsers:
     def test_create_user_invalid_data(
         self, generated_user, user_client, field, value, expected_status, expected_error
     ):
-        generated_user[field] = value
-        response = user_client.post(
-            endpoint=Endpoints.create_user(),
-            json=generated_user,
-        )
-        assert response.status_code == expected_status
-        assert response.json()["detail"][0]["msg"] == expected_error
+        with allure.step(f"Заменить поле {field} на некорректное {value}"):
+            generated_user[field] = value
+        with allure.step(
+            "Отправить запрос на добавление user в БД с невалидными данными"
+        ):
+            response = user_client.post(
+                endpoint=Endpoints.create_user(),
+                json=generated_user,
+            )
+        with allure.step(
+            f"Проверить, что статус - {expected_status}\n"
+            f"и ошибка в ответе - {expected_error}"
+        ):
+            assert response.status_code == expected_status
+            assert response.json()["detail"][0]["msg"] == expected_error
+        with allure.step("Проверить, что пользователь в БД не создался"):
+            response = user_client.search_user_by_email(
+                generated_user["contact"]["email"]
+            )
+            assert response.status_code == 404
 
     @pytest.mark.api_tests
     def test_get_users(self, user_client):

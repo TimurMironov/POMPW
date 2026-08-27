@@ -1,16 +1,31 @@
 from typing import Annotated
 
 from fastapi import HTTPException, Path
-from fastapi.params import Depends
+from fastapi.params import Depends, Query
 from fastapi.routing import APIRouter
 from sqlalchemy.orm import Session, joinedload
 
 from backend_services.base_app.database import get_db
 from backend_services.services.user_service.user_model import User
+from backend_services.services.user_service.user_table import Contact
 from backend_services.services.user_service.user_table import User as UserDB
 from backend_services.utils.helpers import prepare_user_for_db
 
 router = APIRouter()
+
+
+@router.get("/users/search", response_model=list[User])
+async def get_user_by_email(
+    email: Annotated[str, Query(..., description="Email для поиска")],
+    session: Session = Depends(get_db),
+) -> list[User]:
+    users: list = (
+        session.query(UserDB).join(UserDB.contact).filter(Contact.email == email).all()
+    )
+
+    if not users:
+        raise HTTPException(status_code=404, detail="User not Found")
+    return users
 
 
 @router.get("/users", response_model=list[User])

@@ -16,3 +16,7 @@ class Endpoints:
     @classmethod
     def delete_user(cls, user_id: int) -> str:
         return f"{cls.USERS}/{user_id}"
+
+    @classmethod
+    def get_by_email(cls, email: str) -> str:
+        return f"{cls.USERS}/search?email={email}"
