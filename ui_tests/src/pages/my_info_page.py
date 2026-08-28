@@ -22,9 +22,7 @@ class MyInfoPage(BasePage):
         super().__init__(page)
         self.first_name_locator = page.locator(self.FIRST_NAME_LOCATOR)
         self.middle_name_locator = page.locator(self.MIDDLE_NAME_LOCATOR)
-        self.save_personal_details_locator = page.locator(self.SAVE_BUTTON_LOCATOR).nth(
-            0
-        )
+        self.save_personal_details_locator = page.locator(self.SAVE_BUTTON_LOCATOR).nth(0)
         self.loading_spinner_locator = page.locator(self.LOADING_SPINNER_LOCATOR)
         self.add_attachment_locator = page.locator(self.ADD_ATTACHMENT_BUTTON_LOCATOR)
         self.save_attachments = page.locator(self.SAVE_BUTTON_LOCATOR).nth(2)
@@ -49,15 +47,11 @@ class MyInfoPage(BasePage):
             self.loading_spinner_locator.wait_for(state="detached")
 
     def check_first_name_saved(self, check_first_name):
-        with allure.step(
-            f"Проверка что в поле first_name значение стало {check_first_name}"
-        ):
+        with allure.step(f"Проверка что в поле first_name значение стало {check_first_name}"):
             expect(self.first_name_locator).to_have_value(check_first_name)
 
     def check_middle_name_saved(self, check_middle_name):
-        with allure.step(
-            f"Проверка что в поле middle_name значение стало {check_middle_name}"
-        ):
+        with allure.step(f"Проверка что в поле middle_name значение стало {check_middle_name}"):
             expect(self.middle_name_locator).to_have_value(check_middle_name)
 
     def add_attachment(self, path_file):

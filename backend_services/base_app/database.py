@@ -6,9 +6,7 @@ from sqlalchemy.orm import sessionmaker
 from backend_services.services.base_table import Base
 from backend_services.utils.users.load_users import fill_users_tables
 
-SQL_DB_URL = os.getenv(
-    "DB_URL", "postgresql://postgres:Changeme123@localhost:5432/api_db"
-)
+SQL_DB_URL = os.getenv("DB_URL", "postgresql://postgres:Changeme123@localhost:5432/api_db")
 
 engine = create_engine(
     SQL_DB_URL,

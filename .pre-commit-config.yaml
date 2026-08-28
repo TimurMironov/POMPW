@@ -12,8 +12,8 @@ repos:
 
   # Ruff: линтер и форматтер
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.13                      # Используйте актуальную версию
+    rev: v0.16.5                     # Используйте актуальную версию
     hooks:
       - id: ruff                     # Запуск линтера
         args: [--fix]                # Автоисправление ошибок
-      - id: ruff-format              # Запуск форматтера
+      - id: ruff-format

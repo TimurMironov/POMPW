@@ -61,37 +61,34 @@ class TestUsers:
                     field="gender",
                     value="Unknown",
                     expected_status=422,
-                    expected_error="IInput should be 'male' or 'female'",
+                    expected_error="Input should be 'male' or 'female'",
                 ),
                 id="Invalid gender value",
             ),
         ],
     )
     def test_create_user_invalid_data(
-            self,
-            generated_user: dict[str, Any],
-            user_client: UserClient,
-            invalid_data_case: InvalidDataCase,
+        self,
+        generated_user: dict[str, Any],
+        user_client: UserClient,
+        invalid_data_case: InvalidDataCase,
     ):
         with allure.step(f"Заменить поле {invalid_data_case.field} на некорректное {invalid_data_case.value}"):
             generated_user[invalid_data_case.field] = invalid_data_case.value
-        with allure.step(
-                "Отправить запрос на добавление user в БД с невалидными данными"
-        ):
-            response = user_client.post(
+        with allure.step("Отправить запрос на добавление user в БД с невалидными данными"):
+            response = user_client.request(
+                method="POST",
                 endpoint=Endpoints.create_user(),
                 json=generated_user,
             )
         with allure.step(
-                f"Проверить, что статус - {invalid_data_case.expected_status}\n"
-                f"и ошибка в ответе - {invalid_data_case.expected_error}"
+            f"Проверить, что статус - {invalid_data_case.expected_status}\n"
+            f"и ошибка в ответе - {invalid_data_case.expected_error}"
         ):
             assert response.status_code == invalid_data_case.expected_status
             assert response.json()["detail"][0]["msg"] == invalid_data_case.expected_error
         with allure.step("Проверить, что пользователь в БД не создался"):
-            response = user_client.search_user_by_email(
-                generated_user["contact"]["email"]
-            )
+            response = user_client.search_user_by_email(generated_user["contact"]["email"])
             assert response.status_code == 404
 
     @pytest.mark.api_tests

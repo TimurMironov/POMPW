@@ -19,9 +19,7 @@ async def get_user_by_email(
     email: Annotated[str, Query(..., description="Email для поиска")],
     session: Session = Depends(get_db),
 ) -> list[User]:
-    users: list = (
-        session.query(UserDB).join(UserDB.contact).filter(Contact.email == email).all()
-    )
+    users: list = session.query(UserDB).join(UserDB.contact).filter(Contact.email == email).all()
 
     if not users:
         raise HTTPException(status_code=404, detail="User not Found")
