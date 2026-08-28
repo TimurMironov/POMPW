@@ -1,5 +1,6 @@
 import random
 from datetime import datetime
+from typing import Any
 
 from faker import Faker
 
@@ -9,7 +10,7 @@ class UserFactory:
     NATIONALITY = ["Русский", "Американец", "Немец", "Француз"]
     SOCIAL_NETWORKS = ["Telegram", "WhatsApp", "LinkedIn"]
 
-    def create_user(self):
+    def create_user(self) -> dict[str, Any]:
         faker = Faker("ru_RU")
         birth_date = faker.date_of_birth(minimum_age=18, maximum_age=60)
 

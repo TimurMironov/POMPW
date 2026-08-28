@@ -1,10 +1,22 @@
+from dataclasses import dataclass
+from typing import Any
+
 import allure
 import pytest
 
 from api_tests.src.services.users.endpoints import Endpoints
+from api_tests.src.services.users.user_client import UserClient
 
 # from api_tests.src.services.users.user_model import User
 from api_tests.src.services.users.user_helpers import UserHelper
+
+
+@dataclass
+class InvalidDataCase:
+    field: str
+    value: Any
+    expected_status: int
+    expected_error: str
 
 
 class TestUsers:
@@ -24,49 +36,58 @@ class TestUsers:
         assert not different_fields, f"Данные в полях {different_fields} разные"
 
     @pytest.mark.parametrize(
-        "field, value, expected_status, expected_error",
+        "invalid_data_case",
         [
             pytest.param(
-                "first_name",
-                "",
-                422,
-                "String should have at least 1 character",
+                InvalidDataCase(
+                    field="first_name",
+                    value="",
+                    expected_status=422,
+                    expected_error="String should have at least 1 character",
+                ),
                 id="Empty name",
             ),
             pytest.param(
-                "age",
-                "abc",
-                422,
-                "Input should be a valid integer, unable to parse string as an integer",
+                InvalidDataCase(
+                    field="age",
+                    value="abc",
+                    expected_status=422,
+                    expected_error="Input should be a valid integer, unable to parse string as an integer",
+                ),
                 id="Invalid age type",
             ),
             pytest.param(
-                "gender",
-                "Unknown",
-                422,
-                "Input should be 'male' or 'female'",
+                InvalidDataCase(
+                    field="gender",
+                    value="Unknown",
+                    expected_status=422,
+                    expected_error="IInput should be 'male' or 'female'",
+                ),
                 id="Invalid gender value",
             ),
         ],
     )
     def test_create_user_invalid_data(
-        self, generated_user, user_client, field, value, expected_status, expected_error
+            self,
+            generated_user: dict[str, Any],
+            user_client: UserClient,
+            invalid_data_case: InvalidDataCase,
     ):
-        with allure.step(f"Заменить поле {field} на некорректное {value}"):
-            generated_user[field] = value
+        with allure.step(f"Заменить поле {invalid_data_case.field} на некорректное {invalid_data_case.value}"):
+            generated_user[invalid_data_case.field] = invalid_data_case.value
         with allure.step(
-            "Отправить запрос на добавление user в БД с невалидными данными"
+                "Отправить запрос на добавление user в БД с невалидными данными"
         ):
             response = user_client.post(
                 endpoint=Endpoints.create_user(),
                 json=generated_user,
             )
         with allure.step(
-            f"Проверить, что статус - {expected_status}\n"
-            f"и ошибка в ответе - {expected_error}"
+                f"Проверить, что статус - {invalid_data_case.expected_status}\n"
+                f"и ошибка в ответе - {invalid_data_case.expected_error}"
         ):
-            assert response.status_code == expected_status
-            assert response.json()["detail"][0]["msg"] == expected_error
+            assert response.status_code == invalid_data_case.expected_status
+            assert response.json()["detail"][0]["msg"] == invalid_data_case.expected_error
         with allure.step("Проверить, что пользователь в БД не создался"):
             response = user_client.search_user_by_email(
                 generated_user["contact"]["email"]
