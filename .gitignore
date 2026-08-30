@@ -10,3 +10,4 @@ leetcode.py
 fg.py
 __pycache__/
 uv.lock
+*.log

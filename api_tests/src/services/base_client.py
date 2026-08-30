@@ -19,11 +19,15 @@ class BaseClient:
     def request(self, method, endpoint, **kwargs):
         logger.info("%s %s", method, endpoint)
         logger.debug("Request kwargs: %s", kwargs)
-        response = self.session.request(
-            method=method,
-            url=self._url(endpoint),
-            **kwargs,
-        )
+        try:
+            response = self.session.request(
+                method=method,
+                url=self._url(endpoint),
+                **kwargs,
+            )
+        except requests.exceptions.RequestException as e:
+            logger.exception("%s %s | RequestException - %s", method, endpoint, e)
+            raise
         logger.debug("Response status: %s", response.status_code)
-        logger.debug("Response body: %s", response.json())
+        logger.debug("Response body: %s", response.text)
         return response

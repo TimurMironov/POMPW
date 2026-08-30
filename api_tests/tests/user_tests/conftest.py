@@ -1,5 +1,6 @@
 import pytest
 
+# from _pytest.runner import CallInfo
 from api_tests.src.services.users.user_client import UserClient
 from api_tests.src.services.users.user_factory import UserFactory
 from api_tests.src.services.users.user_model import User
@@ -24,3 +25,11 @@ def created_user(user_client, generated_user):
     yield user_id, generated_user
 
     user_client.delete_user(user_id=user_id)
+
+
+#
+# @pytest.hookimpl(hookwrapper=True)
+# def pytest_runtest_makereport(call: CallInfo):
+#     outcome = yield
+#     result = outcome.get_result()
+#     print(result.outcome)
