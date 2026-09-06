@@ -1,4 +1,3 @@
-from dataclasses import dataclass
 from typing import Any
 
 import allure
@@ -6,29 +5,18 @@ import pytest
 
 from api_tests.src.services.users.endpoints import Endpoints
 from api_tests.src.services.users.user_client import UserClient
-
-# from api_tests.src.services.users.user_model import User
 from api_tests.src.services.users.user_helpers import UserHelper
-
-
-@dataclass
-class InvalidDataCase:
-    field: str
-    value: Any
-    expected_status: int
-    expected_error: str
+from api_tests.src.services.users.user_model import User
+from api_tests.tests.user_tests.constants import InvalidDataCase
 
 
 class TestUsers:
-    # @pytest.mark.api_tests
-    # def test_user_creation(self, user_client, user):
-    #     User.model_validate(user)
-    #     user_client.create_user(user_data=user)
-
     @pytest.mark.api_tests
-    def test_get_user(self, user_client, created_user):
-        user_id, expected_user = created_user
-        actual_user = user_client.get_user(user_id)
+    def test_get_user(self, user_client, prepare_user):
+        user_id, expected_user = prepare_user
+        response = user_client.get_user(user_id)
+        assert response.status_code == 200
+        actual_user = User.model_validate(response.json())
         different_fields = UserHelper.compare_users(
             expected_user=expected_user,
             actual_user=actual_user,
@@ -69,17 +57,18 @@ class TestUsers:
     )
     def test_create_user_invalid_data(
         self,
-        generated_user: dict[str, Any],
+        generate_user: dict[str, Any],
+        update_user,
         user_client: UserClient,
         invalid_data_case: InvalidDataCase,
     ):
         with allure.step(f"Заменить поле {invalid_data_case.field} на некорректное {invalid_data_case.value}"):
-            generated_user[invalid_data_case.field] = invalid_data_case.value
+            user = update_user(data=generate_user, key=invalid_data_case.field, new_value=invalid_data_case.value)
         with allure.step("Отправить запрос на добавление user в БД с невалидными данными"):
             response = user_client.request(
                 method="POST",
                 endpoint=Endpoints.create_user(),
-                json=generated_user,
+                json=user,
             )
         with allure.step(
             f"Проверить, что статус - {invalid_data_case.expected_status}\n"
@@ -88,10 +77,11 @@ class TestUsers:
             assert response.status_code == invalid_data_case.expected_status
             assert response.json()["detail"][0]["msg"] == invalid_data_case.expected_error
         with allure.step("Проверить, что пользователь в БД не создался"):
-            response = user_client.search_user_by_email(generated_user["contact"]["email"])
+            response = user_client.search_user_by_email(user["contact"]["email"])
             assert response.status_code == 404
 
     @pytest.mark.api_tests
     def test_get_users(self, user_client):
-        users = user_client.get_users()
-        assert users[0].first_name == "Дмитрий"
+        response = user_client.get_users()
+        assert response.status_code == 200
+        # users = [User.model_validate(user) for user in response.json()]

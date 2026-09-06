@@ -1,8 +1,9 @@
+from requests import Response
+
 from api_tests.src.config.headers import Headers
 from api_tests.src.config.logger import logger
 from api_tests.src.services.base_client import BaseClient
 from api_tests.src.services.users.endpoints import Endpoints
-from api_tests.src.services.users.user_model import User
 
 
 class UserClient(BaseClient):
@@ -17,21 +18,18 @@ class UserClient(BaseClient):
             endpoint=Endpoints.get_users(),
             **kwargs,
         )
-        assert response.status_code == 200
-        users = [User.model_validate(user) for user in response.json()]
-        return users
+        return response
 
-    def get_user(self, user_id: int, **kwargs) -> User:
+    def get_user(self, user_id: int, **kwargs) -> Response:
         logger.info("Getting user with id=%s", user_id)
         response = self.request(
             method="GET",
             endpoint=Endpoints.get_user(user_id),
             **kwargs,
         )
-        assert response.status_code == 200
-        return User.model_validate(response.json())
+        return response
 
-    def create_user(self, user_data, **kwargs):
+    def create_user(self, user_data, **kwargs) -> Response:
         logger.info("Creating user")
         response = self.request(
             method="POST",
@@ -39,7 +37,6 @@ class UserClient(BaseClient):
             json=user_data,
             **kwargs,
         )
-        assert response.status_code == 200
         return response
 
     def delete_user(self, user_id: int, **kwargs):
@@ -49,7 +46,6 @@ class UserClient(BaseClient):
             endpoint=Endpoints.delete_user(user_id),
             **kwargs,
         )
-        assert response.status_code == 200
         return response
 
     def search_user_by_email(self, email: str, **kwargs):

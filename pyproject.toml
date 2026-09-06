@@ -38,6 +38,18 @@ dev = [
 ]
 
 
+[tool.pytest.ini_options]
+testpaths = [
+    "api_tests/tests",
+    "ui_tests/tests",
+]
+markers = [
+    "api_tests: API tests",
+]
+addopts = "-v --alluredir=./allure-results"
+strict_markers = true
+
+
 [tool.ruff]
 # Настройки, общие для линтинга и форматирования
 target-version = "py311"        # Минимальная версия Python

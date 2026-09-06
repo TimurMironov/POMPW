@@ -6,30 +6,40 @@ from api_tests.src.services.users.user_factory import UserFactory
 from api_tests.src.services.users.user_model import User
 
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def user_client():
     return UserClient()
 
 
 @pytest.fixture
-def generated_user():
+def generate_user():
     return UserFactory().create_user()
 
 
 @pytest.fixture
-def created_user(user_client, generated_user):
-    User.model_validate(generated_user)
-    user = user_client.create_user(user_data=generated_user)
-    user_id = user.json().get("user_id")
+def prepare_user(user_client, generate_user):
+    User.model_validate(generate_user)
+    response = user_client.create_user(user_data=generate_user)
+    assert response.status_code == 200
+    user_id = response.json().get("user_id")
 
-    yield user_id, generated_user
+    yield user_id, generate_user
 
-    user_client.delete_user(user_id=user_id)
+    response = user_client.delete_user(user_id=user_id)
+    assert response.status_code == 200
 
 
-#
-# @pytest.hookimpl(hookwrapper=True)
-# def pytest_runtest_makereport(call: CallInfo):
-#     outcome = yield
-#     result = outcome.get_result()
-#     print(result.outcome)
+@pytest.fixture
+def update_user():
+    def update(data: dict | list, key: str, new_value):
+        for key_current, value in data.items():
+            if key_current == key:
+                data[key_current] = new_value
+            elif isinstance(value, dict):
+                update(value, key, new_value)
+            elif isinstance(value, list):
+                for item in value:
+                    update(item, key, new_value)
+        return data
+
+    return update
