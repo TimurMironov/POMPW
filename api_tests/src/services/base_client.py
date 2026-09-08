@@ -2,19 +2,19 @@ from urllib.parse import urljoin
 
 import requests
 
-from api_tests.src.config.base_url import Host
 from api_tests.src.config.headers import Headers
 from api_tests.src.config.logger import logger
+from api_tests.src.config.settings import base_settings
 
 
 class BaseClient:
-    def __init__(self, headers: dict = None):
-        self.host = Host()
+    def __init__(self, settings=base_settings, headers: dict = None):
         self.session = requests.Session()
         self.session.headers.update(headers or Headers.BASE_HEADERS)
+        self.settings = settings
 
     def _url(self, endpoint):
-        return urljoin(self.host.BASE_URL, endpoint)
+        return urljoin(self.settings.base_url, endpoint)
 
     def request(self, method, endpoint, **kwargs):
         logger.info("%s %s", method, endpoint)
@@ -23,6 +23,7 @@ class BaseClient:
             response = self.session.request(
                 method=method,
                 url=self._url(endpoint),
+                timeout=self.settings.timeout,
                 **kwargs,
             )
         except requests.exceptions.RequestException as e:

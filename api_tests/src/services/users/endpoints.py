@@ -18,5 +18,5 @@ class Endpoints:
         return f"{cls.USERS}/{user_id}"
 
     @classmethod
-    def get_by_email(cls, email: str) -> str:
-        return f"{cls.USERS}/search?email={email}"
+    def get_by_search(cls) -> str:
+        return f"{cls.USERS}/search"

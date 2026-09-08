@@ -52,7 +52,8 @@ class UserClient(BaseClient):
         logger.info("Searching user with email=%s", email)
         response = self.request(
             method="GET",
-            endpoint=Endpoints.get_by_email(email),
+            endpoint=Endpoints.get_by_search(),
+            params={"email": email},
             **kwargs,
         )
         return response
