@@ -11,3 +11,4 @@ fg.py
 __pycache__/
 uv.lock
 *.log
+knowledges

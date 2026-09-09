@@ -6,17 +6,17 @@ import pytest
 from api_tests.src.services.users.endpoints import Endpoints
 from api_tests.src.services.users.user_client import UserClient
 from api_tests.src.services.users.user_helpers import UserHelper
-from api_tests.src.services.users.user_model import User
+from api_tests.src.services.users.user_responce import UserResponse
 from api_tests.tests.user_tests.constants import InvalidDataCase
 
 
 class TestUsers:
     @pytest.mark.api_tests
     def test_get_user(self, user_client, prepare_user):
-        user_id, expected_user = prepare_user
-        response = user_client.get_user(user_id)
+        expected_user = prepare_user
+        response = user_client.get_user(expected_user.id)
         assert response.status_code == 200
-        actual_user = User.model_validate(response.json())
+        actual_user = UserResponse.model_validate(response.json())
         different_fields = UserHelper.compare_users(
             expected_user=expected_user,
             actual_user=actual_user,
@@ -77,7 +77,7 @@ class TestUsers:
             assert response.status_code == invalid_data_case.expected_status
             assert response.json()["detail"][0]["msg"] == invalid_data_case.expected_error
         with allure.step("Проверить, что пользователь в БД не создался"):
-            response = user_client.search_user_by_email(user["contact"]["email"])
+            response = user_client.search_user_by_email(user["email"])
             assert response.status_code == 404
 
     @pytest.mark.api_tests

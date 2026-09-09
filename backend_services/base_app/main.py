@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
-from backend_services.base_app.database import create_tables
+from backend_services.db.database import create_tables
+from backend_services.services.auth_service import auth_service
 from backend_services.services.user_service import user_service
 
 # create_database_if_not_exists()
@@ -10,6 +11,7 @@ create_tables()
 
 app = FastAPI()
 app.include_router(user_service.router)
+app.include_router(auth_service.router)
 
 
 @app.get("/")

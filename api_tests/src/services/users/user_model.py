@@ -26,7 +26,6 @@ class Contact(BaseModel):
         populate_by_name=True,
     )
 
-    email: EmailStr = Field(...)
     phone: str = Field(...)
     address: Address = Field(...)
     social_networks: list[SocialNetwork] = Field(alias="networks")
@@ -60,6 +59,9 @@ class User(BaseModel):
     age: int = Field(alias="age")
     gender: Literal["male", "female"] = Field(...)
     nationality: str = Field(alias="nationality", default="Not defined")
+    email: EmailStr = Field(...)
+    password: str = Field(...)
+    is_active: bool = Field(...)
 
     contact: Contact = Field(..., alias="contact")
     statistics: Statistics = Field(..., alias="statistics")

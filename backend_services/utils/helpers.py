@@ -1,4 +1,5 @@
-from backend_services.services.user_service.user_model import User as UserModel
+from backend_services.services.auth_service.security import hash_password
+from backend_services.services.user_service.user_models.user_model import User as UserModel
 from backend_services.services.user_service.user_table import (
     Contact,
     Statistics,
@@ -8,7 +9,6 @@ from backend_services.services.user_service.user_table import (
 
 def prepare_user_for_db(user: UserModel) -> User:
     contact = Contact(
-        email=user.contact.email,
         phone=user.contact.phone,
         address=user.contact.address.model_dump(),
         networks=[network.model_dump() for network in user.contact.social_networks],
@@ -31,6 +31,9 @@ def prepare_user_for_db(user: UserModel) -> User:
         nationality=user.nationality,
         contact=contact,
         statistics=statistics,
+        email=user.email,
+        hashed_password=hash_password(user.password),
+        is_active=user.is_active,
     )
 
     return db_user

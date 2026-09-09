@@ -3,8 +3,7 @@ import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from backend_services.services.base_table import Base
-from backend_services.utils.users.load_users import fill_users_tables
+from backend_services.db.base_table import Base
 
 SQL_DB_URL = os.getenv("DB_URL", "postgresql://postgres:Changeme123@localhost:5432/api_db")
 
@@ -40,6 +39,3 @@ if __name__ == "__main__":
     )
 
     create_tables()
-
-    with session_maker() as session:
-        fill_users_tables(session)

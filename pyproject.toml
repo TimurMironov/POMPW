@@ -13,7 +13,9 @@ backend = [
     "python-dotenv==1.2.1",
     "psycopg2-binary>=2.9.0",
     "pydantic[email]==2.12.5",
-    "loguru"
+    "loguru",
+    "pwdlib[argon2]",
+    "PyJWT",
 ]
 
 api_tests = [

@@ -3,7 +3,7 @@ import pytest
 # from _pytest.runner import CallInfo
 from api_tests.src.services.users.user_client import UserClient
 from api_tests.src.services.users.user_factory import UserFactory
-from api_tests.src.services.users.user_model import User
+from api_tests.src.services.users.user_helpers import UserHelper
 
 
 @pytest.fixture(scope="session")
@@ -18,12 +18,16 @@ def generate_user():
 
 @pytest.fixture
 def prepare_user(user_client, generate_user):
-    User.model_validate(generate_user)
     response = user_client.create_user(user_data=generate_user)
     assert response.status_code == 200
-    user_id = response.json().get("user_id")
 
-    yield user_id, generate_user
+    user_id = response.json().get("user_id")
+    expected_user = UserHelper.to_response_model(
+        user_data=generate_user,
+        user_id=user_id,
+    )
+
+    yield expected_user
 
     response = user_client.delete_user(user_id=user_id)
     assert response.status_code == 200

@@ -22,8 +22,10 @@ class UserFactory:
             "age": (datetime.now().date() - birth_date).days // 365,
             "gender": random.choice(self.GENDERS),
             "nationality": random.choice(self.NATIONALITY),
+            "email": faker.email(),
+            "password": faker.password(),
+            "is_active": True,
             "contact": {
-                "email": faker.email(),
                 "phone": faker.phone_number(),
                 "address": {
                     "city": faker.city(),
