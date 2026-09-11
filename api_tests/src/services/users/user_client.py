@@ -2,13 +2,13 @@ from requests import Response
 
 from api_tests.src.config.headers import Headers
 from api_tests.src.config.logger import logger
-from api_tests.src.config.settings import Settings, base_settings
+from api_tests.src.config.settings import Settings
 from api_tests.src.services.base_client import BaseClient
 from api_tests.src.services.users.endpoints import Endpoints
 
 
 class UserClient(BaseClient):
-    def __init__(self, settings: Settings = base_settings):
+    def __init__(self, settings: Settings):
         super().__init__(settings=settings)
         self.headers = Headers()
 

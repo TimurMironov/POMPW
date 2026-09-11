@@ -34,7 +34,6 @@ class Contact(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     user_id: Mapped[int] = mapped_column(ForeignKey("user.id"))
-    # email: Mapped[str] = mapped_column(String(30), nullable=False)
     phone: Mapped[str] = mapped_column(String(30), nullable=False)
     address: Mapped[dict] = mapped_column(JSON)
     networks: Mapped[list[dict]] = mapped_column(JSON)

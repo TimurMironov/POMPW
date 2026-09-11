@@ -1,14 +1,11 @@
 import pytest
 
-# from _pytest.runner import CallInfo
+from api_tests.src.services.auth.auth_client import AuthClient
 from api_tests.src.services.users.user_client import UserClient
 from api_tests.src.services.users.user_factory import UserFactory
 from api_tests.src.services.users.user_helpers import UserHelper
-
-
-@pytest.fixture(scope="session")
-def user_client():
-    return UserClient()
+from backend_services.services.auth_service.models.auth import Auth
+from backend_services.services.auth_service.models.register_response import RegisterResponse
 
 
 @pytest.fixture
@@ -47,3 +44,46 @@ def update_user():
         return data
 
     return update
+
+
+@pytest.fixture
+def auth_user() -> Auth:
+    return Auth(
+        email="test_auth_user@example.com",
+        password="TestPassword123!",
+    )
+
+
+@pytest.fixture
+def register_user(
+    auth_user: Auth,
+    auth_client: AuthClient,
+    user_client: UserClient,
+):
+    response = auth_client.register(auth_user.model_dump(by_alias=True))
+    assert response.status_code == 200
+    registered_user = RegisterResponse.model_validate(response.json())
+
+    yield auth_user
+
+    response = user_client.delete_user(user_id=registered_user.id)
+    assert response.status_code == 200
+
+
+@pytest.fixture
+def login_user(
+    register_user,
+    auth_client: AuthClient,
+) -> str:
+    response = auth_client.login(register_user.model_dump(by_alias=True))
+    assert response.status_code == 200
+    return response.json()["access_token"]
+
+
+@pytest.fixture
+def authorized_user_client(
+    login_user: str,
+    user_client: UserClient,
+) -> UserClient:
+    user_client.session.headers.update({"Authorization": f"Bearer {login_user}"})
+    return user_client
